@@ -1,9 +1,65 @@
-<title>{{title}}</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
-<link rel="shortcut icon" href="{{appUrl}}/images/favicon.ico"/>
-<base target="content-frame">
-{{{css}}}
-<script>document.documentElement.className = document.documentElement.className.replace(/\bnojs\b/g, '');</script>
+  <title>{{name}} | {{label}}</title>  
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
+  <link rel="shortcut icon" href="{{appUrl}}/images/favicon.ico"/>
+  <link rel="canonical" href="" />
+  <link rel="shortlink" href="" />
+  <base target="content-frame">
+  {{{css}}}
+  <style type="text/css" media="all">
+  .flowplayer{background:url(http://sites.dlib.nyu.edu/rosie/sites/default/files/styles/video_player_background/public/representative_images/1_JERRE_KALBAS.jpg?itok=LZqoLNYd);}
+  </style>
+
+  <!--[if IE 8]>
+  <link type="text/css" rel="stylesheet" href="ie8.css" media="all" />
+  <![endif]-->
+
+  <!--[if IE 7]>
+  <link type="text/css" rel="stylesheet" href="ie7.css" media="all" />
+  <![endif]-->
+
+  <!--[if (lt IE 9)&(!IEMobile)]>
+  <style type="text/css" media="all">
+  @import url("rosie-html5-alpha-default.css");
+  @import url("rosie-html5-alpha-default-normal.css");
+  @import url("alpha-default-normal-12.css");
+  </style>
+  <![endif]-->
+
+  <!--[if gte IE 9]><!-->
+  <style type="text/css" media="all and (min-width: 740px) and (min-device-width: 740px), (max-device-width: 800px) and (min-width: 740px) and (orientation:landscape)">
+  @import url("rosie-html5-alpha-default.css");
+  @import url("rosie-html5-alpha-default-narrow.css");
+  @import url("alpha-default-narrow-12.css");
+  </style>
+  <!--<![endif]-->
+
+<!--[if gte IE 9]><!-->
+<style type="text/css" media="all and (min-width: 980px) and (min-device-width: 980px), all and (max-device-width: 1024px) and (min-width: 1024px) and (orientation:landscape)">
+@import url("rosie-html5-alpha-default.css");
+@import url("rosie-html5-alpha-default-normal.css");
+@import url("alpha-default-normal-12.css");
+</style>
+<!--<![endif]-->
+
+<!--[if gte IE 9]><!-->
+<style type="text/css" media="all and (min-width: 1280px)">
+@import url("rosie-html5-alpha-default.css");
+@import url("rosie-html5-alpha-default-wide.css");
+@import url("alpha-default-wide-12.css");
+</style>
+<!--<![endif]-->
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="jquery.once.js"></script>
+  <script type="text/javascript" src="drupal.js"></script>
+  <script type="text/javascript" src="admin_devel.js"></script>
+  <script type="text/javascript" src="dlts_interview.js"></script>
+  <script type="text/javascript" src="jquery.formalize.js"></script>
+  <script type="text/javascript" src="omega-mediaqueries.js"></script>
+  <script type="text/javascript" src="omega-equalheights.js"></script>
+  <script type="text/javascript">
+  jQuery.extend(Drupal.settings, {"basePath":"\/rosie\/","pathPrefix":"","ajaxPageState":{"theme":"rosie_html5","theme_token":"WbnWyfD1qZ1IT2edSGrnn-9YYS9RmnME9tWjy-vUEOg","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/default\/modules\/admin_menu\/admin_devel\/admin_devel.js":1,"\/rosie\/sites\/all\/libraries\/flowplayer\/flowplayer-3.2.6.min.js":1,"sites\/default\/modules\/dlts_interview\/js\/dlts_interview.js":1,"sites\/dlib.nyu.edu.rosie\/themes\/omega\/omega\/js\/jquery.formalize.js":1,"sites\/dlib.nyu.edu.rosie\/themes\/omega\/omega\/js\/omega-mediaqueries.js":1,"sites\/dlib.nyu.edu.rosie\/themes\/omega\/omega\/js\/omega-equalheights.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/node\/node.css":1,"modules\/user\/user.css":1,"sites\/default\/modules\/views\/css\/views.css":1,"sites\/default\/modules\/dlts_interview\/css\/dlts_interview.css":1,"sites\/default\/modules\/ctools\/css\/ctools.css":1,"0":1,"sites\/dlib.nyu.edu.rosie\/themes\/omega\/omega\/css\/formalize.css":1,"sites\/dlib.nyu.edu.rosie\/themes\/rosie_html5\/css\/ie8.css":1,"sites\/dlib.nyu.edu.rosie\/themes\/rosie_html5\/css\/ie7.css":1,"sites\/dlib.nyu.edu.rosie\/themes\/rosie_html5\/css\/global.css":1,"ie::normal::sites\/dlib.nyu.edu.rosie\/themes\/rosie_html5\/css\/rosie-html5-alpha-default.css":1,"ie::normal::sites\/dlib.nyu.edu.rosie\/themes\/rosie_html5\/css\/rosie-html5-alpha-default-normal.css":1,"ie::normal::sites\/dlib.nyu.edu.rosie\/themes\/omega\/alpha\/css\/grid\/alpha_default\/normal\/alpha-default-normal-12.css":1,"narrow::sites\/dlib.nyu.edu.rosie\/themes\/rosie_html5\/css\/rosie-html5-alpha-default.css":1,"narrow::sites\/dlib.nyu.edu.rosie\/themes\/rosie_html5\/css\/rosie-html5-alpha-default-narrow.css":1,"sites\/dlib.nyu.edu.rosie\/themes\/omega\/alpha\/css\/grid\/alpha_default\/narrow\/alpha-default-narrow-12.css":1,"normal::sites\/dlib.nyu.edu.rosie\/themes\/rosie_html5\/css\/rosie-html5-alpha-default.css":1,"normal::sites\/dlib.nyu.edu.rosie\/themes\/rosie_html5\/css\/rosie-html5-alpha-default-normal.css":1,"sites\/dlib.nyu.edu.rosie\/themes\/omega\/alpha\/css\/grid\/alpha_default\/normal\/alpha-default-normal-12.css":1,"wide::sites\/dlib.nyu.edu.rosie\/themes\/rosie_html5\/css\/rosie-html5-alpha-default.css":1,"wide::sites\/dlib.nyu.edu.rosie\/themes\/rosie_html5\/css\/rosie-html5-alpha-default-wide.css":1,"sites\/dlib.nyu.edu.rosie\/themes\/omega\/alpha\/css\/grid\/alpha_default\/wide\/alpha-default-wide-12.css":1}},"dlts":{"interview":{"player":{"url":"\/rosie\/sites\/all\/libraries\/flowplayer\/flowplayer-3.2.7.swf","key":"","plugins":{"bwcheck":{"url":"\/rosie\/sites\/all\/libraries\/flowplayer\/plugins\/flash\/flowplayer.bwcheck-3.2.5.swf","bitrateProfileName":"RTMPBitrateProfile","checkOnStart":1,"dynamic":0,"dynamicBuffer":1,"live":0,"netConnectionUrl":"rtmp:\/\/ams.library.nyu.edu\/tamwag_rosie","rememberBitrate":1,"serverType":"fms","switchOnFullscreen":0,"hdButton":true},"controls":{"url":"\/rosie\/sites\/all\/libraries\/flowplayer\/plugins\/flash\/flowplayer.controls-3.2.5.swf","autoHide":"always","play":1,"volume":1,"mute":1,"time":1,"stop":0,"playlist":1,"fastBackward":0,"fastForward":0},"rtmp":{"url":"\/rosie\/sites\/all\/libraries\/flowplayer\/plugins\/flash\/flowplayer.rtmp-3.2.3.swf","netConnectionUrl":"rtmp:\/\/ams.library.nyu.edu\/tamwag_rosie","objectEncoding":"3","proxyType":"best"}}},"streams":[{"id":"id-c3d94a5123d3f212a834ea1063f53eb0","playlist":[{"accelerated":0,"autoBuffering":0,"autoPlay":0,"bufferLength":"3","cuepointMultiplier":"1000","start":"61.00","duration":"2258.39","fadeInSpeed":"1000","fadeOutSpeed":"1000","live":0,"provider":"rtmp","scaling":"fit","type":"video","bitrates":[{"url":"mp4:1_JERRE_KALBAS_REEL_1_300k.mp4","width":448,"height":252,"bitrate":300,"hd":false,"normal":true,"isDefault":true},{"url":"mp4:1_JERRE_KALBAS_REEL_1_800k.mp4","width":640,"height":360,"bitrate":800,"hd":false,"normal":true,"isDefault":false},{"url":"mp4:1_JERRE_KALBAS_REEL_1_3200k.mp4","width":1280,"height":720,"bitrate":3200,"hd":true,"normal":false,"isDefault":false}],"urlResolvers":"bwcheck","netConnectionUrl":null,"title":"Jerre  Kalbas Clip 1"},{"accelerated":0,"autoBuffering":0,"autoPlay":0,"bufferLength":"3","cuepointMultiplier":"1000","duration":"2248.50","fadeInSpeed":"1000","fadeOutSpeed":"1000","live":0,"provider":"rtmp","scaling":"fit","type":"video","bitrates":[{"url":"mp4:1_JERRE_KALBAS_REEL_2_300k.mp4","width":448,"height":252,"bitrate":300,"hd":false,"normal":true,"isDefault":true},{"url":"mp4:1_JERRE_KALBAS_REEL_2_800k.mp4","width":640,"height":360,"bitrate":800,"hd":false,"normal":true,"isDefault":false},{"url":"mp4:1_JERRE_KALBAS_REEL_2_3200k.mp4","width":1280,"height":720,"bitrate":3200,"hd":true,"normal":false,"isDefault":false}],"urlResolvers":"bwcheck","netConnectionUrl":null,"title":"Jerre  Kalbas Clip 2"},{"accelerated":0,"autoBuffering":0,"autoPlay":0,"bufferLength":"3","cuepointMultiplier":"1000","duration":"1160.77","fadeInSpeed":"1000","fadeOutSpeed":"1000","live":0,"provider":"rtmp","scaling":"fit","type":"video","bitrates":[{"url":"mp4:1_JERRE_KALBAS_REEL_3_300k.mp4","width":448,"height":252,"bitrate":300,"hd":false,"normal":true,"isDefault":true},{"url":"mp4:1_JERRE_KALBAS_REEL_3_800k.mp4","width":640,"height":360,"bitrate":800,"hd":false,"normal":true,"isDefault":false},{"url":"mp4:1_JERRE_KALBAS_REEL_3_3200k.mp4","width":1280,"height":720,"bitrate":3200,"hd":true,"normal":false,"isDefault":false}],"urlResolvers":"bwcheck","netConnectionUrl":null,"title":"Jerre  Kalbas Clip 3"},{"accelerated":0,"autoBuffering":0,"autoPlay":0,"bufferLength":"3","cuepointMultiplier":"1000","start":"61.00","duration":"1135.61","fadeInSpeed":"1000","fadeOutSpeed":"1000","live":0,"provider":"rtmp","scaling":"fit","type":"video","bitrates":[{"url":"mp4:1_JERRE_KALBAS_REEL_XTRA_300k.mp4","width":448,"height":336,"bitrate":300,"hd":false,"normal":true,"isDefault":true},{"url":"mp4:1_JERRE_KALBAS_REEL_XTRA_800k.mp4","width":640,"height":480,"bitrate":800,"hd":false,"normal":true,"isDefault":false},{"url":"mp4:1_JERRE_KALBAS_REEL_XTRA_3200k.mp4","width":1280,"height":960,"bitrate":3200,"hd":true,"normal":false,"isDefault":false}],"urlResolvers":"bwcheck","netConnectionUrl":null,"title":"Jerre  Kalbas Clip XTRA"}]}]}},"urlIsAjaxTrusted":{"\/rosie\/interviews\/jerre-kalbas":true},"omega":{"layouts":{"primary":"normal","order":["narrow","normal","wide"],"queries":{"narrow":"all and (min-width: 740px) and (min-device-width: 740px), (max-device-width: 800px) and (min-width: 740px) and (orientation:landscape)","normal":"all and (min-width: 980px) and (min-device-width: 980px), all and (max-device-width: 1024px) and (min-width: 1024px) and (orientation:landscape)","wide":"all and (min-width: 1280px)"}}}});
+  </script>
+  <!--[if lt IE 9]><script src="html5shiv.min.js"></script><![endif]-->
