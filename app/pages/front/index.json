@@ -10,37 +10,15 @@
     }
   ],
   "content": {
-    "navbar" : {
+    "body" : {
       "id" : "navbar",
       "title": "",
       "localsource": "navbar.content.html"
-    },
-    "pagemeta" : {
-      "id" : "pagemeta",
-      "title": "",
-      "localsource": "pagemeta.content.html"
-    },
-    "dragon" : {
-      "id": "dragon",
-      "data": [
-        { "attibute": "identifier", "value": "princeton_aco000319" },
-        { "attibute": "loris", "value": "http://localhost:9080/loris" },
-        { "attibute": "sequence", "value": "1" },
-        { "attibute": "sequence-count", "value": "10" },
-        { "attibute": "sequence-mode", "value": "true" },        
-        { "attibute": "preserve-viewport", "value": "true" },
-        { "attibute": "rotation", "value": "true" },
-        { "attibute": "degrees", "value": "0" },
-        { "attibute": "template", "value": "{{=it.loris}}/{{=it.identifier}}_n{{=it.sequence}}_d.jp2/info.json" }        
-      ]
     }
   },
   "assets" : {
     "js" : [
-      "jquery-3.2.1.js",
-      "doT.min.js",
-      "EventEmitter.min.js",
-      "openseadragon.min.2.3.1.js",
+      "jquery.js",
       "app.js"
     ]
   }
