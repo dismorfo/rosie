@@ -1,0 +1,2026 @@
+/* line 5, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/*!
+Pure v0.6.0
+Copyright 2014 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+https://github.com/yahoo/pure/blob/master/LICENSE.md
+*/
+/*!
+
+/* ==========================================================================
+   Pure Base Extras
+   ========================================================================== */
+/**
+ * Extra rules that Pure adds on top of Normalize.css
+ */
+/**
+ * Always hide an element when it has the `hidden` HTML attribute.
+ */
+/* line 21, ../sass/partials/base/_views-grid.scss */
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/**
+ * Add this class to an image to make it fit within it's fluid parent wrapper while maintaining
+ * aspect ratio.
+ */
+/* line 30, ../sass/partials/base/_views-grid.scss */
+.views-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*csslint regex-selectors:false, known-properties:false, duplicate-properties:false*/
+/* line 38, ../sass/partials/base/_views-grid.scss */
+.views-g {
+  letter-spacing: -0.31em;
+  /* Webkit: collapse white-space between units */
+  *letter-spacing: normal;
+  /* reset IE < 8 */
+  *word-spacing: -0.43em;
+  /* IE < 8: collapse white-space between units */
+  text-rendering: optimizespeed;
+  /* Webkit: fixes text-rendering: optimizeLegibility */
+    /*
+    Sets the font stack to fonts known to work properly with the above letter
+    and word spacings. See: https://github.com/yahoo/pure/issues/41/
+
+    The following font stack makes Pure Grids work on all known environments.
+
+    * FreeSans: Ships with many Linux distros, including Ubuntu
+
+    * Arimo: Ships with Chrome OS. Arimo has to be defined before Helvetica and
+      Arial to get picked up by the browser, even though neither is available
+      in Chrome OS.
+
+    * Droid Sans: Ships with all versions of Android.
+
+    * Helvetica, Arial, sans-serif: Common font stack on OS X and Windows.
+    */
+  font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
+    /*
+    Use flexbox when possible to avoid `letter-spacing` side-effects.
+
+    NOTE: Firefox(as of 25) does not currently support flex-wrap, so the
+    `-moz-` prefix version is omitted.
+    */
+  display: -webkit-flex;
+  -webkit-flex-flow: row wrap;
+  /* IE10 uses display: flexbox */
+  display: -ms-flexbox;
+  -ms-flex-flow: row wrap;
+  /* Prevents distributing space between rows */
+  -ms-align-content: flex-start;
+  -webkit-align-content: flex-start;
+  align-content: flex-start;
+}
+
+/* Opera as of 12 on Windows needs word-spacing.
+   The ".opera-only" selector is used to prevent actual prefocus styling
+   and is not required in markup.
+*/
+/* line 86, ../sass/partials/base/_views-grid.scss */
+.opera-only :-o-prefocus,
+.views-g {
+  word-spacing: -0.43em;
+}
+
+/* line 91, ../sass/partials/base/_views-grid.scss */
+.views-u {
+  display: inline-block;
+  *display: inline;
+  /* IE < 8: fake inline-block */
+  zoom: 1;
+  letter-spacing: normal;
+  word-spacing: normal;
+  vertical-align: top;
+  text-rendering: auto;
+}
+
+/*
+Resets the font family back to the OS/browser's default sans-serif font,
+this the same font stack that Normalize.css sets for the `body`.
+*/
+/* line 105, ../sass/partials/base/_views-grid.scss */
+.views-g [class*="views-u"] {
+  font-family: sans-serif;
+}
+
+/* line 109, ../sass/partials/base/_views-grid.scss */
+.views-u-1,
+.views-u-1-1,
+.views-u-1-2,
+.views-u-1-3,
+.views-u-2-3,
+.views-u-1-4,
+.views-u-3-4,
+.views-u-1-5,
+.views-u-2-5,
+.views-u-3-5,
+.views-u-4-5,
+.views-u-5-5,
+.views-u-1-6,
+.views-u-5-6,
+.views-u-1-8,
+.views-u-3-8,
+.views-u-5-8,
+.views-u-7-8,
+.views-u-1-12,
+.views-u-5-12,
+.views-u-7-12,
+.views-u-11-12,
+.views-u-1-24,
+.views-u-2-24,
+.views-u-3-24,
+.views-u-4-24,
+.views-u-5-24,
+.views-u-6-24,
+.views-u-7-24,
+.views-u-8-24,
+.views-u-9-24,
+.views-u-10-24,
+.views-u-11-24,
+.views-u-12-24,
+.views-u-13-24,
+.views-u-14-24,
+.views-u-15-24,
+.views-u-16-24,
+.views-u-17-24,
+.views-u-18-24,
+.views-u-19-24,
+.views-u-20-24,
+.views-u-21-24,
+.views-u-22-24,
+.views-u-23-24,
+.views-u-24-24 {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  letter-spacing: normal;
+  word-spacing: normal;
+  vertical-align: top;
+  text-rendering: auto;
+}
+
+/* line 164, ../sass/partials/base/_views-grid.scss */
+.views-u-1-24 {
+  width: 4.1667%;
+  *width: 4.1357%;
+}
+
+/* line 169, ../sass/partials/base/_views-grid.scss */
+.views-u-1-12,
+.views-u-2-24 {
+  width: 8.3333%;
+  *width: 8.3023%;
+}
+
+/* line 175, ../sass/partials/base/_views-grid.scss */
+.views-u-1-8,
+.views-u-3-24 {
+  width: 12.5000%;
+  *width: 12.4690%;
+}
+
+/* line 181, ../sass/partials/base/_views-grid.scss */
+.views-u-1-6,
+.views-u-4-24 {
+  width: 16.6667%;
+  *width: 16.6357%;
+}
+
+/* line 187, ../sass/partials/base/_views-grid.scss */
+.views-u-1-5 {
+  width: 20%;
+  *width: 19.9690%;
+}
+
+/* line 192, ../sass/partials/base/_views-grid.scss */
+.views-u-5-24 {
+  width: 20.8333%;
+  *width: 20.8023%;
+}
+
+/* line 197, ../sass/partials/base/_views-grid.scss */
+.views-u-1-4,
+.views-u-6-24 {
+  width: 25%;
+  *width: 24.9690%;
+}
+
+/* line 203, ../sass/partials/base/_views-grid.scss */
+.views-u-7-24 {
+  width: 29.1667%;
+  *width: 29.1357%;
+}
+
+/* line 208, ../sass/partials/base/_views-grid.scss */
+.views-u-1-3,
+.views-u-8-24 {
+  width: 33.3333%;
+  *width: 33.3023%;
+}
+
+/* line 214, ../sass/partials/base/_views-grid.scss */
+.views-u-3-8,
+.views-u-9-24 {
+  width: 37.5000%;
+  *width: 37.4690%;
+}
+
+/* line 220, ../sass/partials/base/_views-grid.scss */
+.views-u-2-5 {
+  width: 40%;
+  *width: 39.9690%;
+}
+
+/* line 225, ../sass/partials/base/_views-grid.scss */
+.views-u-5-12,
+.views-u-10-24 {
+  width: 41.6667%;
+  *width: 41.6357%;
+}
+
+/* line 231, ../sass/partials/base/_views-grid.scss */
+.views-u-11-24 {
+  width: 45.8333%;
+  *width: 45.8023%;
+}
+
+/* line 236, ../sass/partials/base/_views-grid.scss */
+.views-u-1-2,
+.views-u-12-24 {
+  width: 50%;
+  *width: 49.9690%;
+}
+
+/* line 242, ../sass/partials/base/_views-grid.scss */
+.views-u-13-24 {
+  width: 54.1667%;
+  *width: 54.1357%;
+}
+
+/* line 247, ../sass/partials/base/_views-grid.scss */
+.views-u-7-12,
+.views-u-14-24 {
+  width: 58.3333%;
+  *width: 58.3023%;
+}
+
+/* line 253, ../sass/partials/base/_views-grid.scss */
+.views-u-3-5 {
+  width: 60%;
+  *width: 59.9690%;
+}
+
+/* line 258, ../sass/partials/base/_views-grid.scss */
+.views-u-5-8,
+.views-u-15-24 {
+  width: 62.5000%;
+  *width: 62.4690%;
+}
+
+/* line 264, ../sass/partials/base/_views-grid.scss */
+.views-u-2-3,
+.views-u-16-24 {
+  width: 66.6667%;
+  *width: 66.6357%;
+}
+
+/* line 270, ../sass/partials/base/_views-grid.scss */
+.views-u-17-24 {
+  width: 70.8333%;
+  *width: 70.8023%;
+}
+
+/* line 275, ../sass/partials/base/_views-grid.scss */
+.views-u-3-4,
+.views-u-18-24 {
+  width: 75%;
+  *width: 74.9690%;
+}
+
+/* line 281, ../sass/partials/base/_views-grid.scss */
+.views-u-19-24 {
+  width: 79.1667%;
+  *width: 79.1357%;
+}
+
+/* line 286, ../sass/partials/base/_views-grid.scss */
+.views-u-4-5 {
+  width: 80%;
+  *width: 79.9690%;
+}
+
+/* line 291, ../sass/partials/base/_views-grid.scss */
+.views-u-5-6,
+.views-u-20-24 {
+  width: 83.3333%;
+  *width: 83.3023%;
+}
+
+/* line 297, ../sass/partials/base/_views-grid.scss */
+.views-u-7-8,
+.views-u-21-24 {
+  width: 87.5000%;
+  *width: 87.4690%;
+}
+
+/* line 303, ../sass/partials/base/_views-grid.scss */
+.views-u-11-12,
+.views-u-22-24 {
+  width: 91.6667%;
+  *width: 91.6357%;
+}
+
+/* line 309, ../sass/partials/base/_views-grid.scss */
+.views-u-23-24 {
+  width: 95.8333%;
+  *width: 95.8023%;
+}
+
+/* line 314, ../sass/partials/base/_views-grid.scss */
+.views-u-1,
+.views-u-1-1,
+.views-u-5-5,
+.views-u-24-24 {
+  width: 100%;
+}
+
+/* YUI CSS Detection Stamp */
+/* line 322, ../sass/partials/base/_views-grid.scss */
+#yui3-css-stamp.cssgrids {
+  display: none;
+}
+
+/* line 1, ../sass/partials/base/_base-typography.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 5, ../sass/partials/base/_base-typography.scss */
+body {
+  font-size: 87.5%;
+  /* The font-size percentage is of 16px.(0.875 * 16px ~ 14px) */
+  line-height: 1.5em;
+}
+
+/* line 11, ../sass/partials/base/_base-typography.scss */
+pre,
+code {
+  font-family: "DejaVu Sans Mono", Monaco, Consolas, monospace;
+}
+
+/* line 16, ../sass/partials/base/_base-typography.scss */
+hr {
+  border: 0 #ccc solid;
+  border-top-width: 1px;
+  clear: both;
+  height: 0;
+}
+
+/* `Headings
+----------------------------------------------------------------------------------------------------*/
+/* line 26, ../sass/partials/base/_base-typography.scss */
+h1 {
+  font-size: 1.714em;
+  /* 24px */
+}
+
+/* line 31, ../sass/partials/base/_base-typography.scss */
+h2 {
+  font-size: 1.571em;
+  /* 22px */
+}
+
+/* line 36, ../sass/partials/base/_base-typography.scss */
+h3 {
+  font-size: 1.429em;
+  /* 20px */
+}
+
+/* line 41, ../sass/partials/base/_base-typography.scss */
+h4 {
+  font-size: 1.286em;
+  /* 18px */
+}
+
+/* line 46, ../sass/partials/base/_base-typography.scss */
+h5 {
+  font-size: 1.143em;
+  /* 16px */
+}
+
+/* line 51, ../sass/partials/base/_base-typography.scss */
+h6 {
+  font-size: 1.071em;
+  /* 15px */
+}
+
+/* `Spacing
+----------------------------------------------------------------------------------------------------*/
+/* line 59, ../sass/partials/base/_base-typography.scss */
+ol {
+  list-style: decimal;
+}
+
+/* line 63, ../sass/partials/base/_base-typography.scss */
+ul {
+  list-style: disc;
+}
+
+/* line 67, ../sass/partials/base/_base-typography.scss */
+li {
+  margin-left: 30px;
+}
+
+/* line 71, ../sass/partials/base/_base-typography.scss */
+p,
+dl,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+ul,
+pre,
+table,
+address,
+fieldset,
+figure {
+  margin-bottom: 20px;
+}
+
+/* line 90, ../sass/partials/base/_base-typography.scss */
+strong {
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "book-viewer";
+  src: url('../fonts/book-viewer.eot?1503001775');
+  src: url('../fonts/book-viewer.eot?&1503001775#iefix') format('embedded-opentype'), url('../fonts/book-viewer.woff?1503001775') format('woff'), url('../fonts/book-viewer.ttf?1503001775') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 3, ../sass/partials/book/pages/_base.scss */
+html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+/* line 10, ../sass/partials/book/pages/_base.scss */
+html a {
+  text-decoration: none;
+  color: #952c2f;
+}
+/* line 4, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/typography/links/_hover-link.scss */
+html a:hover, html a:focus {
+  text-decoration: underline;
+}
+/* line 18, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/typography/links/_link-colors.scss */
+html a:visited {
+  color: #823f41;
+}
+/* line 21, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/typography/links/_link-colors.scss */
+html a:focus {
+  color: #9f2226;
+}
+/* line 24, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/typography/links/_link-colors.scss */
+html a:hover {
+  color: #9f2226;
+}
+/* line 27, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/typography/links/_link-colors.scss */
+html a:active {
+  color: #9f2226;
+}
+/* line 13, ../sass/partials/book/pages/_base.scss */
+html i, html em {
+  font-style: italic;
+}
+/* line 16, ../sass/partials/book/pages/_base.scss */
+html body, html input {
+  font-family: inherit;
+}
+/* line 19, ../sass/partials/book/pages/_base.scss */
+html body, html #main, html #page {
+  overflow: inherit;
+  height: inherit;
+  width: inherit;
+}
+
+/** Global elements */
+/* line 28, ../sass/partials/book/pages/_base.scss */
+.element-invisible, .hidden {
+  display: none;
+  visibility: hidden;
+}
+
+/* line 1, ../sass/partials/book/panes/_pane-base.scss */
+.pane-shadow {
+  background-color: #f9f9f9;
+  -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* line 6, ../sass/partials/book/panes/_pane-base.scss */
+html .page {
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 11, ../sass/partials/book/panes/_pane-base.scss */
+html body.admin-menu {
+  height: calc(100vh - 29px) !important;
+}
+
+/* line 1, ../sass/partials/book/panes/_pane-top.scss */
+#titlebar {
+  background-color: #5a1b1c;
+  overflow: hidden;
+}
+/* line 4, ../sass/partials/book/panes/_pane-top.scss */
+#titlebar #page-title {
+  text-shadow: embossed-text-shadow-dark-background;
+  letter-spacing: .05em;
+  color: #e9e9e9;
+  line-height: 1.8em;
+  font-size: 1.6em;
+  margin-left: .6rem;
+}
+
+/* line 4, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar {
+  background-color: #333333;
+  overflow: hidden;
+  padding: 5px 0 0;
+  flex: 0 0 55px;
+  max-width: 100vw;
+}
+/* line 10, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-left,
+#navbar .navbar-middle,
+#navbar .navbar-right,
+#navbar .navbar-arrows,
+#navbar .navbar-fullscreen {
+  width: auto;
+  overflow: auto;
+  height: 46px;
+}
+/* line 19, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-left,
+#navbar .navbar-middle,
+#navbar .navbar-arrows {
+  padding-right: 7%;
+  float: left;
+}
+/* line 25, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-fullscreen {
+  float: right;
+  margin-right: 20px;
+}
+/* line 29, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-fullscreen .navbar-item {
+  float: none;
+}
+/* line 32, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-item {
+  min-width: 50px;
+  display: block;
+  float: left;
+  margin: 0 0 0 .5em;
+  font-size: 2.3em;
+}
+/* line 38, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-item a,
+#navbar .navbar-item a.active,
+#navbar .navbar-item span,
+#navbar .navbar-item .olControlDLTSZoomInItemInactive,
+#navbar .navbar-item .olControlDLTSZoomOutItemInactive {
+  display: block;
+  margin: 0 auto;
+  width: 44px;
+  height: 44px;
+  color: #ffffff;
+  text-decoration: none;
+  opacity: 0.8;
+  text-shadow: icon-embossed-text-shadow;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-shadow: inset 0 0 0 transparent, inset 0 0 0 transparent;
+  -webkit-box-shadow: inset 0 0 0 transparent, inset 0 0 0 transparent;
+  box-shadow: inset 0 0 0 transparent, inset 0 0 0 transparent;
+  -moz-transition-property: border, box-shadow;
+  -o-transition-property: border, box-shadow;
+  -webkit-transition-property: border, box-shadow;
+  transition-property: border, box-shadow;
+  -moz-transition-duration: 100ms;
+  -o-transition-duration: 100ms;
+  -webkit-transition-duration: 100ms;
+  transition-duration: 100ms;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+}
+/* line 56, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-item a:focus, #navbar .navbar-item a:visited,
+#navbar .navbar-item a.active:focus,
+#navbar .navbar-item a.active:visited,
+#navbar .navbar-item span:focus,
+#navbar .navbar-item span:visited,
+#navbar .navbar-item .olControlDLTSZoomInItemInactive:focus,
+#navbar .navbar-item .olControlDLTSZoomInItemInactive:visited,
+#navbar .navbar-item .olControlDLTSZoomOutItemInactive:focus,
+#navbar .navbar-item .olControlDLTSZoomOutItemInactive:visited {
+  text-decoration: none;
+  color: #ffffff;
+  opacity: 0.8;
+  box-shadow: initial;
+  transition-property: initial;
+  transition-duration: initial;
+  transition-timing-function: initial;
+}
+/* line 66, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-item a:hover,
+#navbar .navbar-item a.active:hover,
+#navbar .navbar-item span:hover,
+#navbar .navbar-item .olControlDLTSZoomInItemInactive:hover,
+#navbar .navbar-item .olControlDLTSZoomOutItemInactive:hover {
+  opacity: 1;
+  cursor: pointer;
+  -moz-box-shadow: inset 2px 0 10px rgba(0, 0, 0, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.75), inset 2px 2px 15px #7f7f7f, 0px 1px 1px white;
+  -webkit-box-shadow: inset 2px 0 10px rgba(0, 0, 0, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.75), inset 2px 2px 15px #7f7f7f, 0px 1px 1px white;
+  box-shadow: inset 2px 0 10px rgba(0, 0, 0, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.75), inset 2px 2px 15px #7f7f7f, 0px 1px 1px white;
+  text-decoration: none;
+  color: #ffffff;
+}
+/* line 73, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-item a.on,
+#navbar .navbar-item a.active.on,
+#navbar .navbar-item span.on,
+#navbar .navbar-item .olControlDLTSZoomInItemInactive.on,
+#navbar .navbar-item .olControlDLTSZoomOutItemInactive.on {
+  border: none;
+  opacity: 1;
+  cursor: pointer;
+  -moz-box-shadow: inset 2px 0 10px rgba(0, 0, 0, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.5), 0px 1px 1px rgba(255, 255, 255, 0.75), inset 2px 2px 50px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 2px 0 10px rgba(0, 0, 0, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.5), 0px 1px 1px rgba(255, 255, 255, 0.75), inset 2px 2px 50px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 2px 0 10px rgba(0, 0, 0, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.5), 0px 1px 1px rgba(255, 255, 255, 0.75), inset 2px 2px 50px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+}
+/* line 80, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-item a:before,
+#navbar .navbar-item a.active:before,
+#navbar .navbar-item span:before,
+#navbar .navbar-item .olControlDLTSZoomInItemInactive:before,
+#navbar .navbar-item .olControlDLTSZoomOutItemInactive:before {
+  font-family: "book-viewer";
+  margin: .2em;
+  line-height: 1.4em;
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+}
+/* line 90, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-item .inactive,
+#navbar .navbar-item .zoom_in_max,
+#navbar .navbar-item .zoom_out_max {
+  opacity: 0.33;
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  cursor: default !important;
+}
+/* line 96, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-item .inactive:hover,
+#navbar .navbar-item .zoom_in_max:hover,
+#navbar .navbar-item .zoom_out_max:hover {
+  opacity: 0.33 !important;
+}
+/* line 101, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-item a span {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  text-transform: capitalize;
+  display: none;
+}
+/* line 107, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-item .metadata:before {
+  content: "\e016";
+}
+/* line 112, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-item .fullscreen:before {
+  content: "\e006";
+}
+/* line 115, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-item .fullscreen.on:before {
+  content: "\e005";
+}
+/* line 119, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-item .page-double {
+  width: 62px !important;
+}
+/* line 121, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-item .page-double:before {
+  content: "\e00a";
+}
+/* line 126, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-item .page-single:before {
+  content: "\e009";
+}
+/* line 131, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-item .thumbnails:before {
+  content: "\e007";
+}
+/* line 136, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-item .pager-right:before {
+  content: "\e012";
+}
+/* line 141, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-item .pager-left:before {
+  content: "\e013";
+}
+/* line 146, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-item .annotations:before {
+  content: "\e004";
+}
+/* line 151, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-item .search:before {
+  content: "\e003";
+}
+/* line 156, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-item .olControlDLTSZoomInItemInactive:before {
+  content: "\e00b";
+}
+/* line 161, ../sass/partials/book/panes/_pane-navbar.scss */
+#navbar .navbar-item .olControlDLTSZoomOutItemInactive:before {
+  content: "\e00c";
+}
+
+@media screen and (max-width: 700px) {
+  /* line 169, ../sass/partials/book/panes/_pane-navbar.scss */
+  .navbar-left,
+  .navbar-middle,
+  .navbar-arrows {
+    padding: 0;
+  }
+
+  /* line 174, ../sass/partials/book/panes/_pane-navbar.scss */
+  .navbar-fullscreen .navbar-item,
+  .navbar-item {
+    margin: 0 .2em;
+  }
+}
+@media screen and (max-width: 600px) {
+  /* line 181, ../sass/partials/book/panes/_pane-navbar.scss */
+  .navbar-fullscreen .navbar-item,
+  .navbar-item {
+    margin: 0 .2em;
+  }
+
+  /* line 185, ../sass/partials/book/panes/_pane-navbar.scss */
+  .navbar-middle,
+  .navbar-arrows {
+    display: none;
+  }
+}
+/* line 1, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -moz-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+  width: 280px;
+  height: 100%;
+  padding: 0;
+  position: relative;
+  z-index: 100;
+  background-color: #f9f9f9;
+  word-wrap: break-word;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: block;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  /* multivol */
+}
+/* line 17, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .view-mv select {
+  max-width: 98%;
+}
+/* line 20, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .container {
+  padding: 0 0 0;
+  margin: .6rem;
+}
+/* line 23, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .container .field {
+  line-height: 1.4;
+  margin-bottom: 5px;
+}
+/* line 27, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .container .field-name-title {
+  font-weight: bold;
+  font-size: 1.3em;
+  margin: .7rem 0 .5rem;
+  line-height: 1.3;
+}
+/* line 33, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .container .field-name-field-subtitle {
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+  font-size: 1.1em;
+  margin: .5em 0;
+  padding: 0 0 .5em 0;
+}
+/* line 41, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .container .field-name-field-rights {
+  margin-top: .5em;
+  border-top: 1px solid #ccc;
+  padding-top: .5em;
+  font-size: .8em;
+}
+/* line 47, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .container .field .field-label {
+  font-weight: bold;
+}
+/* line 50, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .container .field-name-field-pdf-file .field-item a:after {
+  content: ", ";
+  text-decoration: none;
+  color: #000;
+  margin-right: .2em;
+}
+/* line 56, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .container .field-name-field-pdf-file .field-item:last-child a:after {
+  content: "";
+}
+/* line 59, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .container .metapane-dropdowns {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1em;
+  margin-bottom: .5em;
+}
+/* line 64, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .container .lang-options {
+  margin-bottom: 0;
+}
+/* line 68, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .container .field-name-field-representative-image img {
+  max-width: 100%;
+}
+/* line 72, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .container .field-label-inline {
+  word-wrap: break-word;
+}
+/* line 75, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .container .field-label {
+  display: inline-block;
+  white-space: nowrap;
+  float: none;
+}
+/* line 82, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .container .field-name-field-subject .field-item::after {
+  content: ",";
+  padding-right: 3px;
+}
+/* line 88, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .container .field-name-field-subject .field-item:last-child::after {
+  content: "";
+  padding-right: 0px;
+}
+/* line 95, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .container .field-name-series-for-this-book .field-label {
+  display: block;
+}
+/* line 98, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .container .field-name-series-for-this-book .field-items {
+  display: block;
+}
+/* line 102, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .container .field-items {
+  display: inline-block;
+  word-wrap: break-word;
+  float: none;
+}
+/* line 107, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .container .field-item {
+  display: inline-block;
+}
+/* line 111, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .container .field-name-mv-2016 .field-items,
+.pagemeta .container .field-name-mv-2016 .field-item {
+  display: block;
+}
+/* line 115, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .container .field-name-mv-2016 .ctools-jump-menu-hide {
+  height: 0;
+  width: 0;
+}
+/* line 121, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .container .field-name-field-author .field-item {
+  display: block;
+}
+/* line 125, ../sass/partials/book/panes/_pane-metadata.scss */
+.pagemeta .container .field-type-link-field {
+  margin-top: .5em;
+  border-top: 1px solid #ccc;
+  padding-top: .5em;
+}
+
+/* line 134, ../sass/partials/book/panes/_pane-metadata.scss */
+.main[dir="rtl"] .pagemeta {
+  float: right;
+  border-right: none;
+  border-left: 1px solid #ccc;
+  direction: rtl;
+}
+/* line 140, ../sass/partials/book/panes/_pane-metadata.scss */
+.main[dir="rtl"] .pagemeta .field-name-field-rights .field-item {
+  direction: ltr;
+  text-align: right;
+}
+/* line 146, ../sass/partials/book/panes/_pane-metadata.scss */
+.main[dir="rtl"] .field-label-inline .field-label,
+.main[dir="rtl"] .field-label-inline .field-items {
+  float: none;
+}
+
+/* line 153, ../sass/partials/book/panes/_pane-metadata.scss */
+.main[dir="ltr"] .pagemeta {
+  float: left;
+  border-left: none;
+  border-right: 1px solid #ccc;
+  direction: ltr;
+}
+
+/* line 4, ../sass/partials/book/panes/_pane-display.scss */
+body.pagemeta-hidden .pane .pagemeta {
+  display: none;
+  visibility: hidden;
+}
+/* line 8, ../sass/partials/book/panes/_pane-display.scss */
+body.pagemeta-hidden .pane .display {
+  margin-left: inherit;
+  margin-right: inherit;
+}
+/* line 11, ../sass/partials/book/panes/_pane-display.scss */
+body.pagemeta-hidden .pane .display .pager-left {
+  left: initial;
+}
+/* line 17, ../sass/partials/book/panes/_pane-display.scss */
+body .display {
+  position: relative;
+  z-index: 10;
+  background-color: white;
+  margin-left: -280px;
+  margin-right: -280px;
+  width: inherit;
+  height: inherit;
+  float: left;
+  /**
+   * https://jira.nyu.edu/browse/DLTSVIEWER-9 
+   */
+}
+/* line 29, ../sass/partials/book/panes/_pane-display.scss */
+body .display div.olMap, body .display div.node.pjax {
+  width: 100%;
+  height: 100%;
+}
+/* line 33, ../sass/partials/book/panes/_pane-display.scss */
+body .display .pager-right {
+  right: -20px;
+}
+/* line 37, ../sass/partials/book/panes/_pane-display.scss */
+body .display .button.toggle-page {
+  display: none;
+  visibility: hidden;
+}
+/* line 42, ../sass/partials/book/panes/_pane-display.scss */
+body .display .next-page-off,
+body .display .previous-page-off {
+  margin-top: 35%;
+  display: block;
+  opacity: 0.33;
+}
+/* line 48, ../sass/partials/book/panes/_pane-display.scss */
+body .display a {
+  text-shadow: icon-embossed-text-shadow;
+  color: #444;
+  text-decoration: none;
+}
+/* line 52, ../sass/partials/book/panes/_pane-display.scss */
+body .display a:before {
+  font-family: "book-viewer";
+  line-height: 1em;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 9em;
+  padding: 0;
+  margin: 0;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+}
+/* line 63, ../sass/partials/book/panes/_pane-display.scss */
+body .display a.paging {
+  position: fixed;
+  display: inline;
+  margin: 0;
+  opacity: 0.4;
+  top: 40%;
+  z-index: 9999;
+}
+/* line 70, ../sass/partials/book/panes/_pane-display.scss */
+body .display a.paging.pager-left {
+  left: 260px;
+  text-decoration: none;
+}
+/* line 73, ../sass/partials/book/panes/_pane-display.scss */
+body .display a.paging.pager-left:before {
+  content: "\e014";
+}
+/* line 78, ../sass/partials/book/panes/_pane-display.scss */
+body .display a.paging.pager-right:before {
+  content: "\e002";
+}
+/* line 82, ../sass/partials/book/panes/_pane-display.scss */
+body .display a.paging.inactive {
+  display: none;
+  visibility: hidden;
+}
+/* line 86, ../sass/partials/book/panes/_pane-display.scss */
+body .display a.paging:hover {
+  opacity: 1;
+}
+/* line 90, ../sass/partials/book/panes/_pane-display.scss */
+body .display a span {
+  display: none;
+  visibility: hidden;
+}
+/* line 98, ../sass/partials/book/panes/_pane-display.scss */
+body .pane.main[dir="rtl"] .pane.display .paging.pager-right {
+  right: 260px;
+}
+/* line 101, ../sass/partials/book/panes/_pane-display.scss */
+body .pane.main[dir="rtl"] .pane.display .paging.pager-left {
+  left: -20px;
+}
+
+/* line 1, ../sass/partials/book/panes/_pane-options.scss */
+#options {
+  height: 100%;
+  text-align: left;
+}
+
+/* line 2, ../sass/partials/book/panes/_pane-slider.scss */
+.yui3-skin-sam .yui3-slider-x .yui3-slider-rail,
+.yui3-skin-sam .yui3-slider-x .yui3-slider-rail-cap-left,
+.yui3-skin-sam .yui3-slider-x .yui3-slider-rail-cap-right {
+  background-image: url(../images/slider/rail-x.png) !important;
+}
+
+/* line 8, ../sass/partials/book/panes/_pane-slider.scss */
+#pager {
+  width: 100%;
+  flex: 0 0 40px;
+  height: 40px;
+  background-color: #e5e5e5;
+  background: #e5e5e5;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VkZWRlZCIgc3RvcC1vcGFjaXR5PSIwLjUiLz48c3RvcCBvZmZzZXQ9IjE1JSIgc3RvcC1jb2xvcj0iI2U1ZTVlNSIgc3RvcC1vcGFjaXR5PSIwLjAiLz48c3RvcCBvZmZzZXQ9IjkyJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjAiLz48c3RvcCBvZmZzZXQ9IjExMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC41Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(237, 237, 237, 0.5)), color-stop(15%, rgba(229, 229, 229, 0)), color-stop(92%, rgba(0, 0, 0, 0)), color-stop(110%, rgba(0, 0, 0, 0.5)));
+  background-image: -moz-linear-gradient(rgba(237, 237, 237, 0.5) 0%, rgba(229, 229, 229, 0) 15%, rgba(0, 0, 0, 0) 92%, rgba(0, 0, 0, 0.5) 110%);
+  background-image: -webkit-linear-gradient(rgba(237, 237, 237, 0.5) 0%, rgba(229, 229, 229, 0) 15%, rgba(0, 0, 0, 0) 92%, rgba(0, 0, 0, 0.5) 110%);
+  background-image: linear-gradient(rgba(237, 237, 237, 0.5) 0%, rgba(229, 229, 229, 0) 15%, rgba(0, 0, 0, 0) 92%, rgba(0, 0, 0, 0.5) 110%);
+  color: #333;
+  font-size: .853em;
+  padding: 8px 0 0 0;
+  border-top: 1px solid #ccc;
+}
+/* line 18, ../sass/partials/book/panes/_pane-slider.scss */
+#pager #slider_value {
+  font-weight: bold;
+  background: #f1f1f1;
+  width: 2.5em;
+  text-align: center;
+  padding: 0;
+  border: 1px solid;
+  border-color: #aaa #fff #fff #aaa;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  cursor: text;
+  color: #444;
+  font-size: 1em;
+}
+/* line 31, ../sass/partials/book/panes/_pane-slider.scss */
+#pager form {
+  display: inline;
+}
+/* line 34, ../sass/partials/book/panes/_pane-slider.scss */
+#pager form + span,
+#pager form + span + span {
+  text-shadow: embossed-text-shadow;
+  font-weight: bold;
+  color: #444;
+}
+/* line 40, ../sass/partials/book/panes/_pane-slider.scss */
+#pager #slider {
+  padding: 0px 20px;
+}
+/* line 43, ../sass/partials/book/panes/_pane-slider.scss */
+#pager .pages_count_total {
+  white-space: nowrap;
+  color: #777;
+  cursor: default;
+}
+/* line 49, ../sass/partials/book/panes/_pane-slider.scss */
+#pager #slider_value.error {
+  border: 1px solid #8C2E0B;
+  background-color: #DF3A01;
+  opacity: 1;
+  color: #fff !important;
+}
+/* line 55, ../sass/partials/book/panes/_pane-slider.scss */
+#pager #slider_value.warning {
+  border: 1px solid #FEFFBF;
+  background-color: #B2B300;
+  color: #fff !important;
+  opacity: 1;
+}
+
+/* line 1, ../sass/partials/book/panes/_pane-loading.scss */
+.pane.load {
+  position: fixed;
+  text-align: center;
+  top: 45%;
+  left: 50%;
+  height: 39px;
+  width: 176px;
+  margin-left: 32px;
+}
+/* line 10, ../sass/partials/book/panes/_pane-loading.scss */
+.pane.load p {
+  color: #333;
+  padding-top: 10px;
+  text-shadow: icon-embossed-text-shadow;
+}
+
+/* line 17, ../sass/partials/book/panes/_pane-loading.scss */
+body.pagemeta-hidden .pane.load {
+  margin-left: -88px;
+}
+
+/* line 23, ../sass/partials/book/panes/_pane-loading.scss */
+.pane.display.loading .dlts_image_map {
+  display: none;
+  visibility: hidden;
+}
+
+/* line 30, ../sass/partials/book/panes/_pane-loading.scss */
+.pane.load.loading {
+  opacity: 0;
+}
+
+/* line 34, ../sass/partials/book/panes/_pane-loading.scss */
+body.openlayers-loading .pane.load.loading {
+  opacity: 1;
+  transition: opacity .5s;
+  z-index: 100;
+}
+
+/* line 40, ../sass/partials/book/panes/_pane-loading.scss */
+.olLayerDiv {
+  opacity: 1;
+  transition: opacity .5s;
+}
+
+/* line 46, ../sass/partials/book/panes/_pane-loading.scss */
+body.openlayers-loading .olLayerDiv {
+  opacity: 0;
+}
+
+/* line 56, ../sass/partials/book/panes/_pane-loading.scss */
+#squaresWaveG {
+  position: relative;
+  width: 176px;
+  height: 19px;
+}
+
+/* line 66, ../sass/partials/book/panes/_pane-loading.scss */
+.squaresWaveG {
+  position: absolute;
+  top: 0;
+  background-color: #eeeeee;
+  width: 19px;
+  height: 19px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-animation: bounce_squaresWaveG 0.8s linear infinite;
+  -webkit-animation: bounce_squaresWaveG 0.8s linear infinite;
+  animation: bounce_squaresWaveG 0.8s linear infinite;
+}
+
+/* line 64, ../sass/partials/book/defaults/_mixins.scss */
+#squaresWaveG_1 {
+  left: 0px;
+  -moz-animation-delay: 0.31s;
+  -webkit-animation-delay: 0.31s;
+  animation-delay: 0.31s;
+}
+
+/* line 64, ../sass/partials/book/defaults/_mixins.scss */
+#squaresWaveG_2 {
+  left: 22px;
+  -moz-animation-delay: 0.38s;
+  -webkit-animation-delay: 0.38s;
+  animation-delay: 0.38s;
+}
+
+/* line 64, ../sass/partials/book/defaults/_mixins.scss */
+#squaresWaveG_3 {
+  left: 44px;
+  -moz-animation-delay: 0.45s;
+  -webkit-animation-delay: 0.45s;
+  animation-delay: 0.45s;
+}
+
+/* line 64, ../sass/partials/book/defaults/_mixins.scss */
+#squaresWaveG_4 {
+  left: 66px;
+  -moz-animation-delay: 0.52s;
+  -webkit-animation-delay: 0.52s;
+  animation-delay: 0.52s;
+}
+
+/* line 64, ../sass/partials/book/defaults/_mixins.scss */
+#squaresWaveG_5 {
+  left: 88px;
+  -moz-animation-delay: 0.59s;
+  -webkit-animation-delay: 0.59s;
+  animation-delay: 0.59s;
+}
+
+/* line 64, ../sass/partials/book/defaults/_mixins.scss */
+#squaresWaveG_6 {
+  left: 110px;
+  -moz-animation-delay: 0.66s;
+  -webkit-animation-delay: 0.66s;
+  animation-delay: 0.66s;
+}
+
+/* line 64, ../sass/partials/book/defaults/_mixins.scss */
+#squaresWaveG_7 {
+  left: 132px;
+  -moz-animation-delay: 0.73s;
+  -webkit-animation-delay: 0.73s;
+  animation-delay: 0.73s;
+}
+
+/* line 64, ../sass/partials/book/defaults/_mixins.scss */
+#squaresWaveG_8 {
+  left: 154px;
+  -moz-animation-delay: 0.8s;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+
+@-moz-keyframes bounce_squaresWaveG {
+  0% {
+    background-color: #eeeeee;
+  }
+  100% {
+    background-color: #666666;
+  }
+}
+@-webkit-keyframes bounce_squaresWaveG {
+  0% {
+    background-color: #eeeeee;
+  }
+  100% {
+    background-color: #666666;
+  }
+}
+@keyframes bounce_squaresWaveG {
+  0% {
+    background-color: #eeeeee;
+  }
+  100% {
+    background-color: #666666;
+  }
+}
+/* line 3, ../sass/partials/book/panes/_pane-pager.scss */
+#book-navbar .item-list {
+  display: block;
+  height: 100%;
+  text-align: center;
+}
+/* line 7, ../sass/partials/book/panes/_pane-pager.scss */
+#book-navbar .item-list .pager li {
+  padding: 0;
+  margin: 0;
+}
+
+/* line 14, ../sass/partials/book/panes/_pane-pager.scss */
+.pager {
+  background: #666666;
+}
+/* line 16, ../sass/partials/book/panes/_pane-pager.scss */
+.pager li {
+  display: inline;
+  float: left;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  width: 7.14286%;
+  min-width: 48px;
+  opacity: 0.8;
+}
+/* line 23, ../sass/partials/book/panes/_pane-pager.scss */
+.pager li.pager-current, .pager li.pager-ellipsis {
+  float: left;
+  display: block;
+  width: 7.14286%;
+  min-width: 48px;
+  height: 46px;
+  font-size: 1.4em;
+  border: none;
+  line-height: 2em;
+}
+/* line 34, ../sass/partials/book/panes/_pane-pager.scss */
+.pager li a {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  width: 44px;
+  height: 46px;
+  font-size: 1.4em;
+  line-height: 2em;
+  border: none;
+  opacity: 0.8;
+}
+/* line 44, ../sass/partials/book/panes/_pane-pager.scss */
+.pager li a:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+/* line 48, ../sass/partials/book/panes/_pane-pager.scss */
+.pager li a:before {
+  font-family: "book-viewer";
+  margin: 0 99em 0 .2em;
+  line-height: 1.4em;
+  font-size: 1.6em;
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+}
+/* line 59, ../sass/partials/book/panes/_pane-pager.scss */
+.pager li.close a {
+  overflow: hidden;
+}
+/* line 61, ../sass/partials/book/panes/_pane-pager.scss */
+.pager li.close a:before {
+  content: "\e000";
+  color: #ffffff;
+}
+/* line 66, ../sass/partials/book/panes/_pane-pager.scss */
+.pager li.pager-previous a {
+  overflow: hidden;
+}
+/* line 68, ../sass/partials/book/panes/_pane-pager.scss */
+.pager li.pager-previous a:before {
+  content: "\e013";
+  color: #ffffff;
+}
+/* line 73, ../sass/partials/book/panes/_pane-pager.scss */
+.pager li.pager-next a {
+  overflow: hidden;
+}
+/* line 75, ../sass/partials/book/panes/_pane-pager.scss */
+.pager li.pager-next a:before {
+  content: "\e012";
+  color: #ffffff;
+}
+/* line 80, ../sass/partials/book/panes/_pane-pager.scss */
+.pager li.pager-first a {
+  overflow: hidden;
+}
+/* line 82, ../sass/partials/book/panes/_pane-pager.scss */
+.pager li.pager-first a:before {
+  content: "\e010";
+  color: #ffffff;
+}
+/* line 87, ../sass/partials/book/panes/_pane-pager.scss */
+.pager li.pager-last a {
+  overflow: hidden;
+}
+/* line 89, ../sass/partials/book/panes/_pane-pager.scss */
+.pager li.pager-last a:before {
+  content: "\e011";
+  color: #ffffff;
+}
+
+/* line 1, ../sass/partials/book/panes/_pane-thumbnails.scss */
+#thumbnails {
+  background: #666666;
+  position: fixed;
+  bottom: 0;
+  z-index: 999999;
+  height: auto;
+  width: inherit;
+}
+/* line 8, ../sass/partials/book/panes/_pane-thumbnails.scss */
+#thumbnails #book-navbar {
+  height: 40px;
+  background-color: #333;
+  border-top: 1px solid #212121;
+}
+/* line 12, ../sass/partials/book/panes/_pane-thumbnails.scss */
+#thumbnails #book-navbar a, #thumbnails #book-navbar a:link {
+  text-decoration: none;
+}
+/* line 15, ../sass/partials/book/panes/_pane-thumbnails.scss */
+#thumbnails #book-navbar div.pager {
+  float: right;
+  margin-right: 1em;
+  margin-top: -1px;
+  background-color: #333;
+  height: 40px;
+}
+/* line 21, ../sass/partials/book/panes/_pane-thumbnails.scss */
+#thumbnails #book-navbar div.pager .pager-list {
+  display: none;
+  visibility: hidden;
+}
+/* line 27, ../sass/partials/book/panes/_pane-thumbnails.scss */
+#thumbnails .view-book-thumbnails {
+  margin: 5px 1%;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -ms-flex-wrap: nowrap;
+}
+/* line 35, ../sass/partials/book/panes/_pane-thumbnails.scss */
+#thumbnails .view-book-thumbnails .views-row {
+  position: relative;
+  -ms-flex: 0 1 auto;
+  -webkit-flex: 0 1 auto;
+  flex: 0 1 auto;
+  margin: 0 1%;
+  overflow: hidden;
+  max-width: 8%;
+}
+/* line 44, ../sass/partials/book/panes/_pane-thumbnails.scss */
+#thumbnails .view-book-thumbnails .thumbHolder {
+  position: relative;
+  bottom: 0;
+}
+/* line 48, ../sass/partials/book/panes/_pane-thumbnails.scss */
+#thumbnails .view-book-thumbnails img.thumbItem {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: none;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+/* line 57, ../sass/partials/book/panes/_pane-thumbnails.scss */
+#thumbnails .view-book-thumbnails img.thumbItemloader {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: none;
+  opacity: 0;
+}
+/* line 64, ../sass/partials/book/panes/_pane-thumbnails.scss */
+#thumbnails .view-book-thumbnails img.thumbItembg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: none;
+  opacity: .9;
+  position: absolute;
+  top: 0;
+  z-index: -2;
+}
+/* line 74, ../sass/partials/book/panes/_pane-thumbnails.scss */
+#thumbnails .view-book-thumbnails a {
+  display: block;
+}
+/* line 76, ../sass/partials/book/panes/_pane-thumbnails.scss */
+#thumbnails .view-book-thumbnails a:hover {
+  box-shadow: inset  0px 0px 0px 6px white;
+}
+/* line 78, ../sass/partials/book/panes/_pane-thumbnails.scss */
+#thumbnails .view-book-thumbnails a:hover .page-number {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+/* line 84, ../sass/partials/book/panes/_pane-thumbnails.scss */
+#thumbnails .view-book-thumbnails .page-number {
+  color: white;
+  padding: 3% 6%;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.33);
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+/* line 100, ../sass/partials/book/panes/_pane-thumbnails.scss */
+#pager[dir="rtl"] ~ .thumbnails .thumbnails-container .pager-first,
+#pager[dir="rtl"] ~ .thumbnails .thumbnails-container .pager-previous {
+  float: right;
+}
+/* line 104, ../sass/partials/book/panes/_pane-thumbnails.scss */
+#pager[dir="rtl"] ~ .thumbnails .thumbnails-container .pager-last,
+#pager[dir="rtl"] ~ .thumbnails .thumbnails-container .pager-next {
+  float: right;
+}
+/* line 108, ../sass/partials/book/panes/_pane-thumbnails.scss */
+#pager[dir="rtl"] ~ .thumbnails .thumbnails-container .pager-next a:before {
+  content: "\e013" !important;
+}
+/* line 111, ../sass/partials/book/panes/_pane-thumbnails.scss */
+#pager[dir="rtl"] ~ .thumbnails .thumbnails-container .pager-previous a:before {
+  content: "\e012" !important;
+}
+/* line 114, ../sass/partials/book/panes/_pane-thumbnails.scss */
+#pager[dir="rtl"] ~ .thumbnails .thumbnails-container .pager-last a:before {
+  content: "\e010";
+}
+/* line 117, ../sass/partials/book/panes/_pane-thumbnails.scss */
+#pager[dir="rtl"] ~ .thumbnails .thumbnails-container .pager-first a:before {
+  content: "\e011";
+}
+/* line 121, ../sass/partials/book/panes/_pane-thumbnails.scss */
+#pager[dir="rtl"] ~ .thumbnails .view-book-thumbnails {
+  direction: rtl;
+}
+
+/* line 2, ../sass/partials/photo/_base.scss */
+.photo .display {
+  margin-left: inherit;
+  margin-right: inherit;
+}
+
+/* line 8, ../sass/partials/photo/_base.scss */
+#book-navbar.book-navbar-photos .pager {
+  padding: 0 20px;
+}
+/* line 10, ../sass/partials/photo/_base.scss */
+#book-navbar.book-navbar-photos .pager li {
+  width: auto;
+  height: 2.3rem;
+  margin-top: 10px;
+}
+/* line 16, ../sass/partials/photo/_base.scss */
+#book-navbar.book-navbar-photos .pager ul.links li a:link,
+#book-navbar.book-navbar-photos .pager ul.links li a:hover,
+#book-navbar.book-navbar-photos .pager ul.links li a:visited {
+  color: white;
+}
+/* line 21, ../sass/partials/photo/_base.scss */
+#book-navbar.book-navbar-photos .pager ul.links li a,
+#book-navbar.book-navbar-photos .pager ul.links li span {
+  font-size: 1rem;
+  display: block;
+  width: 44px;
+  line-height: 2rem;
+  text-align: center;
+  height: auto;
+}
+/* line 30, ../sass/partials/photo/_base.scss */
+#book-navbar.book-navbar-photos .pager ul.links li span {
+  vertical-align: text-top;
+}
+
+/* line 36, ../sass/partials/photo/_base.scss */
+.photoset-thumbs {
+  margin: 3px 3px 0 0;
+  padding: 20px;
+  overflow: auto;
+}
+/* line 41, ../sass/partials/photo/_base.scss */
+.photoset-thumbs .thumbHolder {
+  padding: 10px;
+}
+/* line 43, ../sass/partials/photo/_base.scss */
+.photoset-thumbs .thumbHolder a {
+  display: block;
+  line-height: 1;
+}
+
+@media (max-width: 700px) {
+  /* line 51, ../sass/partials/photo/_base.scss */
+  .facet_sidebar {
+    display: none;
+  }
+
+  /* line 54, ../sass/partials/photo/_base.scss */
+  .photoset-thumbs {
+    justify-content: center;
+  }
+  /* line 56, ../sass/partials/photo/_base.scss */
+  .photoset-thumbs .thumbHolder {
+    flex: 0 1 45%;
+  }
+  /* line 58, ../sass/partials/photo/_base.scss */
+  .photoset-thumbs .thumbHolder img {
+    width: 100%;
+    height: auto;
+  }
+}
+/* line 66, ../sass/partials/photo/_base.scss */
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 10px;
+}
+
+/* line 71, ../sass/partials/photo/_base.scss */
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+/**
+ * Reset ==============================================================
+ * Based on http://meyerweb.com/eric/tools/css/reset
+ */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+input,
+select,
+textarea,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin:0px;
+  padding:0px;
+  border:0px;
+  outline:0px;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+  line-height:inherit;
+  }
+
+ol,
+ul,
+ul,
+ul li { list-style:none; }
+
+blockquote,
+q { quotes:none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content:'';
+  content:none;
+  }
+
+/* remember to define focus styles! */
+:focus { outline:0px; }
+
+/* remember to highlight inserts somehow! */
+ins { text-decoration:none; }
+del { text-decoration:line-through; }
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+  border-collapse:collapse;
+  border-spacing:0px;
+  }
+
+/**
+ * Font reset =========================================================
+ *
+ * Specifically targets form elements which browsers oftentimes give
+ * special treatment.
+ */
+input,
+select,
+textarea,
+body { font: 13px/20px "Helvetica Neue",Helvetica,Arial,sans-serif; }
+/**
+ * Base styles.
+ * Provides sensible defaults for everything to save you time. Override
+ * with an empty stylesheet to start over from scratch.
+ */
+
+/**
+ * Skip navigation ====================================================
+ */
+#skip-link {
+  position:absolute;
+  display:block;
+  }
+
+#skip-link a,
+#skip-link a:link,
+#skip-link a:visited {
+  position:absolute;
+  display:block;
+  left:-10000px;
+  width:1px;
+  height:1px;
+  }
+
+#skip-link a:hover,
+#skip-link a:active,
+#skip-link a:focus {
+  position:static;
+  width:auto;
+  height:auto;
+  }
+
+/**
+ * Page width limiter =================================================
+ *
+ * Can be nested within major structural elements to allow full-width
+ * bleeds combined with a fixed page width. Set a width on this in your
+ * theme to get a consistent page width on major elements.
+ */
+.limiter { margin:0px auto; }
+
+/**
+ * Links ==============================================================
+ *
+ * Any ul.links are given a horizontal tab-like formatting.
+ */
+ul.links li,
+ul.links li a { float:left; }
+
+ul.links.inline,
+ul.links.inline li,
+ul.links.inline li a {
+  float:none;
+  display:inline;
+  }
+
+/**
+ * Prose ==============================================================
+ *
+ * By default, any text which is suspected to have gone through an
+ * input filter is given the 'prose' class. We want to format it with
+ * readability and nice defaults in mind.
+ */
+.prose { line-height:20px; }
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6,
+.prose p,
+.prose ul,
+.prose ol,
+.prose pre,
+.prose div.codeblock,
+.prose blockquote { margin: 0px 0px 20px; }
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 { font-weight:bold; }
+.prose h1 { font-size:18px; }
+.prose h2 { font-size:15px; }
+
+.prose pre,
+.prose code,
+.prose div.codeblock {
+  font-size:11px;
+  font-family: monospace;
+  }
+
+.prose pre,
+.prose blockquote,
+.prose div.codeblock {
+  line-height:20px;
+  background:#f8f8f8;
+  padding:4px 9px;
+  border:1px solid #eee;
+  border-left:5px solid #eee;
+  }
+
+.prose ol li,
+.prose ul li {
+  display:list-item;
+  margin:0px 0px 0px 30px;
+  padding:0px;
+  }
+
+.prose ol li { list-style:decimal; }
+
+.prose ul li { list-style:disc; }
+
+.prose img { display:block; }
+
+/* Excluding Drupal structures */
+.prose .links,
+.prose .links li,
+.prose .item-list ul,
+.prose .item-list li {
+  margin:0px;
+  padding:0px;
+  list-style:none;
+  }
+
+/**
+ * Tables =============================================================
+ */
+table {
+  width:100%;
+  margin:0px 0px 20px;
+  }
+
+table th,
+table td { vertical-align:middle; }
+
+/**
+ * Forms ==============================================================
+ */
+input.form-text,
+select,
+textarea { border:1px solid #ccc; }
+
+input.form-submit,
+label { font-weight:bold; }
+
+input.form-submit { cursor:pointer; }
+
+input.form-radio,
+input.form-checkbox { vertical-align:middle; }
+
+.form-item .description,
+.description {
+  color:#666;
+  font-size:11px;
+  }
+
+fieldset.collapsible .fieldset-title { cursor:pointer; }
+html.js fieldset.collapsed .fieldset-content { display:none; }
+
+/**
+ * Views ==============================================================
+ */
+table.grid-2 td { width:50%; }
+table.grid-3 td { width:33.3%; }
+table.grid-4 td { width:25%; }
+table.grid-5 td { width:20%; }
+table.grid-6 td { width:16.6%; }
+table.grid-7 td { width:14.2%; }
+table.grid-8 td { width:12.5%; }
+
+#dragon {
+  width: inherit;
+  height: inherit;
+  background-color: white;
+}

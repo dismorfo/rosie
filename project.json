@@ -1,0 +1,12 @@
+{
+  "appName": "The Real Rosie the Riveter Project",
+  "collectionCode": "rosie",
+  "relic": "basic",
+  "version": "0.0.1",
+  "appRoot": "/rosie",
+  "appUrl": "/rosie",
+  "ga": {
+    "active" : false,
+    "code" : ""
+  }
+}

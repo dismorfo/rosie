@@ -1,0 +1,33 @@
+<!doctype html>
+<html dir="ltr" class="nojs html page-books yui3-skin-sam">
+<head>
+  {{>head}}
+</head>
+<body class="pane-body">
+  <div id="page" class="page">
+  {{#content}}
+    {{#navbar}}
+      {{{html}}}
+    {{/navbar}}    
+    <div id="main" class="pane main" dir="ltr">
+      {{#pagemeta}}
+        {{{html}}}
+      {{/pagemeta}}
+      <div id="display" class="pane display">
+        {{#dragon}}
+          <div id="{{id}}" class="dlts_image_map dlts_viewer_map" {{#each data}}data-{{attibute}}="{{value}}" {{/each}}></div>
+        {{/dragon}}
+        <a title="Go to previous page" href="#" class="paging previous pager-right inactive"><span>Go to previous page</span></a>
+        <a title="Go to next page" href="#" class="paging next pager-left ac tive"><span>Go to next page</span></a>
+      </div>
+      <div class="pane load loading"></div>
+    </div>
+    <div id="pager" class="pane pager" dir="rtl">
+      <span id="slider"></span> <form><input id="slider_value" value="1"/></form> <span>/</span> <span class="sequence_count">1</span>
+    </div>
+    <div id="thumbnails" class="views-g pane thumbnails hidden"></div>
+  {{/content}}
+  </div>
+  {{{closure}}}
+</body>
+</html>
