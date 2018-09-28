@@ -44,7 +44,7 @@ function interviews (data) {
       let interviewee = {}
       let image = document.metadata.rosie_representative_image.value[0]
       let imageBasename = document.identifier + '-interview-thumbnail' + agartha.path.extname(agartha.path.basename(image))
-      interviewee.url = document.entity_path.replace(search, replace)  + '/index.html'
+      interviewee.url = agartha.get('appUrl') + document.entity_path.replace(search, replace)
       interviewee.description = document.metadata.description.value.safe_summary
       interviewee.image = agartha.path.join(agartha.get('appUrl'), 'images', imageBasename)
       interviewee.name = document.entity_title
