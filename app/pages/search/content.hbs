@@ -1,0 +1,13 @@
+<a id="main-content"></a>
+<h1 class="title">{{title}}</h1>
+<ol 
+  id="app" 
+  class="container"
+  data-host="{{host}}" 
+  data-port="{{port}}" 
+  data-protocol="{{protocol}}" 
+  data-path="{{path}}" 
+  data-rows="{{rows}}" 
+  data-start="{{start}}">
+  <document-item v-for="document in documents" v-bind:document="document" v-bind:key="document.id"></document-item>
+</ol>

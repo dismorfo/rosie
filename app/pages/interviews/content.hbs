@@ -1,0 +1,15 @@
+{{#content}}
+<div class="grid-{{grid}}">
+  <div>
+    <ul class="interview-list">
+      {{#interviewee}}
+        <li class="interview-row">
+          <a href="{{url}}"><img src="{{image}}" width="448" height="252" alt=""></a>
+          <h3 class="interviewee"><a href="{{url}}">{{name}}</a></h3>
+          <div class="interview-description">{{{description}}}</div>
+        </li>                      
+      {{/interviewee}}
+    </ul>
+  </div>
+</div>
+{{/content}}

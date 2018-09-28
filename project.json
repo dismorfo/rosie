@@ -1,12 +1,10 @@
 {
   "appName": "The Real Rosie the Riveter Project",
-  "collectionCode": "rosie",
-  "relic": "basic",
+  "shortName": "rosie",
+  "appUrl": "http://devweb1.dlib.nyu.edu/rosie",
+  "appRoot": "http://devweb1.dlib.nyu.edu/rosie",
+  "relic": "scaffold",
   "version": "0.0.1",
-  "appRoot": "/rosie",
-  "appUrl": "/rosie",
-  "ga": {
-    "active" : false,
-    "code" : ""
-  }
+  "hephaestus": "2.0.0",
+  "provider": "http://dev-sites.dlib.nyu.edu/media"
 }

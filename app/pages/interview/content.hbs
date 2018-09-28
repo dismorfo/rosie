@@ -1,0 +1,25 @@
+{{#content}}
+<div class="grid-{{grid}} node-type-rosie-interview">
+  <h1 class="title">{{title}}</h1>
+  <article>
+    <div class="player flowplayer">
+      <iframe src="{{video}}"></iframe>
+    </div>
+    <div class="field-name-field-transcript clearfix">
+      <h4 class="field-label">Transcript:</h4>
+      <span class="file"><img class="file-icon" alt="PDF icon" title="application/pdf" src="{{appUrl}}/images/application-pdf.png"> <a href="{{pdf_path}}" type="application/pdf; length={{pdf_length}}">{{path_filename}}</a></span>
+    </div>
+    <div class="field-name-field-handle clearfix">
+      <h4 class="field-label">Citation URL:</h4>
+      <a href="{{handle}}">{{handle}}</a>
+    </div>
+    <div class="field-name-field-rosie-ackknowledgements clearfix">
+      <h4 class="field-label">Acknowledgements:</h4>
+      {{acknowledgements}}
+    </div>
+    <div class="field-name-field-description clearfix">
+      {{{description}}}
+    </div>
+  </article>
+</div>
+{{/content}}

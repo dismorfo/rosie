@@ -1,7 +1,7 @@
 {
   "id" : "home",
-  "title": "Generic viewer",
-  "route": "/index.html",
+  "title" : "Home",
+  "route" : "/index.html",
   "menu": [
     {
       "context": "navbar",
@@ -9,17 +9,19 @@
       "weight": 1
     }
   ],
-  "content": {
-    "body" : {
-      "id" : "navbar",
-      "title": "",
-      "localsource": "navbar.content.html"
-    }
-  },
+  "content" : {},
   "assets" : {
     "js" : [
-      "jquery.js",
-      "app.js"
+      "jquery.1.4.4.js", 
+      "jquery.once.1.2.js", 
+      "drupal.js", 
+      "admin_devel.js", 
+      "jquery.formalize.js", 
+      "omega-mediaqueries.js", 
+      "omega-equalheights.js",
+      "settings.js"      
     ]
   }
 }
+
+

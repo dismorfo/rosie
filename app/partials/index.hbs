@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  {{> head }}
+</head>
+<body class="html {{id}} page-{{id}} context-{{id}} {{isHome}}">
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+  <div id="page" class="clearfix">
+    <header>{{> header }}</header>
+    <section>
+      <a id="main-content"></a>
+      <div class="container-12">        
+        {{> content }}
+      </div>
+    </section>
+    <footer>{{> footer }}</footer>
+  </div>
+  {{{ closure }}}
+</body>
+</html>
