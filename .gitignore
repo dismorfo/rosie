@@ -12,7 +12,6 @@ logs
 .sass-cache
 lib/.sass-cache
 
-build
 backups
 node_modules
 

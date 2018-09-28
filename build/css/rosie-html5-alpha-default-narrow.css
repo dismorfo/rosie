@@ -1,0 +1,66 @@
+body {
+  min-width: 768px;
+}
+
+#page,
+.container-12,
+.container-12 .grid-12 {
+  width: 768px !important;
+}
+
+.container-12,
+.container-12 .grid-12 {
+  margin: 0;
+  padding: 0;
+}
+
+body.front #page {
+  background: #000319 url(http://devweb1.dlib.nyu.edu/rosie/images/real-rosies-768px.jpg) top center no-repeat fixed;
+}
+
+.interview-row {
+  width: 368px;
+  min-height: 360px;
+}
+
+.interview-row img {
+  width: 352px;
+  height: 198px;
+}
+
+#block-search-form {
+  float: right;
+}
+
+.front .block-search-form {
+  float: none;
+  position: relative;
+  background: #5c75a8;
+  background: rgba(92, 117, 168, 0.35);
+  -pie-background: rgba(92, 117, 168, 0.35);
+  behavior: url("http://devweb1.dlib.nyu.edu/rosie/images/PIE.htc");
+}
+
+.field-name-field-transcript,
+.field-name-field-handle {
+  margin: 1em 0 0 0;
+  float: left;
+}
+
+.field-name-field-rosie-ackknowledgements {
+  clear: both;
+}
+
+.not-front .block-search-form {
+  background: none;
+  position: relative;
+  top: -100px;
+  margin: 0 8px 0 0;
+  float: right;
+  width: 240px;
+  padding: 0;
+}
+
+#block-system-main-menu ul.menu li a {
+  width: 232px;
+}

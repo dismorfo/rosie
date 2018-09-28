@@ -1,0 +1,22 @@
+#block-system-main-menu ul.menu li a:hover,
+#block-system-main-menu ul.menu li a:focus,
+#block-system-main-menu ul.menu li a:active {
+  background: #2a3859 !important;
+}
+
+.item-list ul.pager li {
+  background: #2a3859 !important;
+}
+
+.not-front .block-search-form {
+  position: relative;
+  background: #5c75a8;
+  background: rgba(92, 117, 168, 0);
+  -pie-background: rgba(92, 117, 168, 0);
+  behavior: url("http://devweb1.dlib.nyu.edu/rosie/images/PIE.htc");
+  behavior: url("http://devweb1.dlib.nyu.edu/rosie/images/PIE.htc");
+}
+
+.node-type-rosie-interview .field-name-field-description {
+  float: none !important;
+}
