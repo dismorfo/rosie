@@ -18,7 +18,7 @@ module.exports = exports = {
   start : 0,
   assets : {
     js : [
-      'https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js',
+      'https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js',
       'https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js',
       'axios-solr-client.js',
       'ui.js'
