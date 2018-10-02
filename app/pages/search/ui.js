@@ -1,6 +1,5 @@
 var template = `
     <li class="result">
-      <!-- <img v-bind:src="document.ts_image"/> -->
       <h4 class="title"><a v-bind:href="document.url" v-html="document.label"></a></h4>
       <div class="content" v-html="document.ts_bio"></div>
     </li>`

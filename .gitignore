@@ -14,7 +14,7 @@ lib/.sass-cache
 
 backups
 node_modules
-
+build
 # Ignore Eclipse files
 .project
 .buildpath

@@ -46,13 +46,11 @@ function interviews (data) {
       let imageBasename = document.identifier + '-interview-thumbnail' + agartha.path.extname(agartha.path.basename(image))
       interviewee.url = agartha.get('appUrl') + document.entity_path.replace(search, replace)
       interviewee.description = document.metadata.description.value.safe_summary
-      interviewee.image = agartha.path.join(agartha.get('appUrl'), 'images', imageBasename)
+      interviewee.image = agartha.get('appUrl') + '/images/' + imageBasename
       interviewee.name = document.entity_title
       data.content.interviewee.push(interviewee)
     })
-
     agartha.emit('task.done', data)
-    
   }
 }
 

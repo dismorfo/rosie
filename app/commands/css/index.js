@@ -29,10 +29,8 @@ const Massage = class {
       const app = agartha.appDir()
       const build = agartha.appBuildDir()
       const sassConfiguration = agartha.configurations.sass()
-      const { sassy } = require(path.join(agartha.cwd(), 'lib/transform/sass.js'))
+      const sass = require(path.join(agartha.cwd(), 'lib/sassy'))
       const write = require(path.join(agartha.cwd(), 'lib/write'))
-      const sass = new sassy()      
-
       let ie8Result = sass.renderSync({
         file: path.join(app, 'app/sass/ie8.scss'),
         outputStyle: sassConfiguration.dist.options.style
