@@ -43,7 +43,7 @@ const SolrIndexdDocuments = class {
           autoCommit: true
          })
          agartha._.each(documents, (document) => {
-          const doc = readDocument(path.join(documentsPath, document))
+          const doc = agartha.read.json(path.join(documentsPath, document))
           if (doc) {
             client.add({
               id : doc.id,
