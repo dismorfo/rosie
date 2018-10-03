@@ -5,10 +5,10 @@ const SolrBuildDocuments = class {
     return 'solr-build-documents'
   }
   get alias () {
-    return 'sid'
+    return false
   }
   get description () {
-    return 'SolrClient'
+    return 'Build Rosie Solr documents'
   }
   get options () {
     return []
@@ -21,13 +21,16 @@ const SolrBuildDocuments = class {
   }
   action () {
     const agartha = process.agartha    
-    const path = require('path')
-    const PDFParser = require('pdf2json')
+    const path = agartha.path
     try {
       const datasource = path.join(agartha.appDir(), 'app/localsource/interviews.json')
       if (agartha.exists(datasource)) {
         const source = agartha.read.json(datasource)
         const transcriptsDir = path.join(agartha.appDir(), 'app/pages/interview/transcripts')
+        const documentsPath = path.join(agartha.appDir(), 'app/localsource/solr-index-documents')
+        if (agartha.exists(documentsPath)) {
+          agartha.mkdir(documentsPath)
+        }
         agartha._.each(source.response.docs, (document, index) => {
           const remove = 'http://sites.dlib.nyu.edu/rosie/sites/default/files/transcripts/'
           const transcript = agartha.path.join(transcriptsDir, document.metadata.transcript.value[0].replace(remove, ''))
@@ -49,12 +52,11 @@ const SolrBuildDocuments = class {
             type: document.type,
             content: description
           }
-          let pdfParser = new PDFParser(this, 1)
-          pdfParser.on('pdfParser_dataReady', pdfData => {
-            doc.content = doc.description + ' ' + pdfParser.getRawTextContent()
-            agartha.write(path.join(agartha.appDir(), 'app/localsource/solr-index-documents/documents', id + '.json'), JSON.stringify(doc))            
+          let pdf = agartha.read.pdf(transcript)
+          pdf.on('pdfParser_dataReady', pdfData => {
+            doc.content = doc.description + ' ' + pdf.getRawTextContent()
+            agartha.write(path.join(documentsPath, id + '.json'), JSON.stringify(doc))
           })
-          pdfParser.loadPDF(transcript)
         })        
       }
     } catch (e) {

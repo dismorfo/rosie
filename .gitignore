@@ -9,6 +9,8 @@ logs
 *.pid
 *.seed
 
+app/localsource/solr-index-documents
+
 .sass-cache
 lib/.sass-cache
 
