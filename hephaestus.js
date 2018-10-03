@@ -8,8 +8,8 @@ const provider = agartha.get('ROSIE_PROVIDER')
 module.exports = exports = {
   appName: 'The Real Rosie the Riveter Project',
   shortName: 'rosie',
-  appUrl: appUrl,
-  appRoot: appRoot,
+  appUrl: (appUrl) ? appUrl : 'http://127.0.0.1:8080',
+  appRoot:  (appRoot) ? appRoot : 'http://127.0.0.1:8080',
   relic: 'scaffold',
   version: '0.0.1',
   hephaestus: '2.0.0',

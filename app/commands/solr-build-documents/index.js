@@ -49,10 +49,6 @@ const SolrBuildDocuments = class {
             type: document.type,
             content: description
           }
-
-          console.log(doc)
-          return
-
           let pdfParser = new PDFParser(this, 1)
           pdfParser.on('pdfParser_dataReady', pdfData => {
             doc.content = doc.description + ' ' + pdfParser.getRawTextContent()

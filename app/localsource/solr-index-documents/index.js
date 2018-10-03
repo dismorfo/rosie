@@ -6,10 +6,11 @@ const fs = require('fs')
 const path = require('path')
 const solr = require('solr-client')
 const _ = require('underscore')
-const host = 'media.local'
-const port = '8983'
-const corePath = '/solr/media'
 const solrVersion = '5.1'
+const corePath = getEnv('ROSIE_SOLR_CORE_PATH')
+const host = getEnv('ROSIE_SOLR_HOST')
+const port = getEnv('ROSIE_SOLR_PORT')
+const documentsPathEnv = getEnv('ROSIE_SOLR_DOCUMENTS_PATH')
 
 function readDocument (filePath) {
   if (exists(filePath)) {
@@ -26,6 +27,13 @@ function cwd () {
   return __dirname
 }
 
+function getEnv (option) {
+  if (_.has(process.env, option)) {
+    return process.env[option]
+  }
+  return false
+}
+
 function exists (filePath) {
   try {
     fs.accessSync(filePath, fs.F_OK)
@@ -37,13 +45,13 @@ function exists (filePath) {
 }
 
 try {
-  const documentsPath = path.join(cwd(), 'documents')
+  const documentsPath = (documentsPathEnv) ? documentsPathEnv : path.join(cwd(), 'documents')
   if (exists(documentsPath)) {
     const documents = fs.readdirSync(documentsPath)
     const client = solr.createClient({
-      host: host,
-      port: port,
-      path: corePath,
+      host: (host) ? host : 'http://127.0.0.1:8080',
+      port: (port) ? port : 8983,
+      path: (corePath) ? corePath : '/solr/rosie',
       solrVersion: solrVersion,
       get_max_request_entity_size: 1000,
       autoCommit: true

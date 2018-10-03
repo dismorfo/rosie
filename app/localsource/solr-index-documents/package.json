@@ -9,8 +9,7 @@
   "keywords": [],
   "license": "MIT",
   "dependencies": {
-    "solr-client": "^0.7.0",
-    "underscore": "^1.9.1"
+    "solr-client": "^0.7.0"
   },
   "main": "index.js",
   "preferGlobal": false,
