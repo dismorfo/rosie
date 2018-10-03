@@ -9,11 +9,11 @@ const solrPath = agartha.get('ROSIE_SOLR_PATH')
 module.exports = exports = {
   id : 'search',
   title : 'Search results',
-  route : '/search/index.html', 
-  host : (host) ? host : '127.0.0.1',
+  route : '/search/index.html',
+  host : (host) ? host : 'media.local',
   port : (port) ? port : 8983,
   protocol : (protocol) ? protocol : 'http',
-  path : (solrPath) ? solrPath : 'solr/collection1',
+  path : (solrPath) ? solrPath : 'solr/rosie',
   rows : 100,
   start : 0,
   assets : {

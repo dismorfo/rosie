@@ -58,7 +58,7 @@ function interview (data) {
       data.content.grid = 12
       data.content.appUrl = appUrl
       data.content.title = document.entity_title
-      data.content.pdf_path = agartha.path.join('/transcripts', transcriptBasename)
+      data.content.pdf_path = agartha.path.join(agartha.get('appUrl'), 'transcripts', transcriptBasename)
       data.content.pdf_length = stats.size
       data.content.path_filename = transcriptBasename
       data.content.handle = handle

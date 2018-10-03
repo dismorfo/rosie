@@ -35,7 +35,6 @@ const Massage = class {
         file: path.join(app, 'app/sass/ie8.scss'),
         outputStyle: sassConfiguration.dist.options.style
       })
-
       write(path.join(build, 'css/ie8.css'), ie8Result.css.toString())
 
       let ie7Result = sass.renderSync({
