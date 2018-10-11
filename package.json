@@ -1,0 +1,30 @@
+{
+  "name": "rosie",
+  "description": "The Real Rosie the Riveter Project",
+  "version": "2.0.0",
+  "author": "Alberto Ortiz Flores <dismorfo@gmail.com>",
+  "contributors": [
+    "Alberto Ortiz Flores <dismorfo@gmail.com>"
+  ],
+  "keywords": [
+    "hephaestus"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dismorfo/rosie"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "hephaestus-cli": "https://github.com/dismorfo/hephaestus-cli/archive/1.0.0.tar.gz"
+  },
+  "preferGlobal": false,
+  "engines": {
+    "node": ">= 8.0"
+  },
+  "scripts": { 
+    "build" : "./node_modules/hephaestus-cli/index.js fg" 
+  },
+  "os": [
+    "!win32"
+  ]
+}
