@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Generate site
+if [ -d ${OPENSHIFT_REPO_DIR}/build ] ; then
+  npm run-script build
+# Make directory as it does not exist then generate the site
+else
+  mkdir -p ${OPENSHIFT_REPO_DIR}/build
+  npm run-script build
+fi
+
+exit 0
