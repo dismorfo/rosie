@@ -21,10 +21,8 @@
   "engines": {
     "node": ">= 8.0"
   },
-  "scripts": { 
-    "build" : "./node_modules/hephaestus-cli/index.js fg" 
-  },
-  "os": [
-    "!win32"
-  ]
+  "scripts": {
+    "build": "./node_modules/hephaestus-cli/index.js fg",
+    "test-server": "./node_modules/hephaestus-cli/index.js fg && http-server build"
+  }
 }

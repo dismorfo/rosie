@@ -1,3 +1,5 @@
+@import "_variables";
+
 body {
   min-width: 960px
 }
@@ -14,7 +16,7 @@ body {
 }
 
 body.front #page {
-  background: #000319 url(http://devweb1.dlib.nyu.edu/rosie/images/real-rosies-960px.jpg) top center no-repeat fixed
+  background: #000319 $bg-image-960 top center no-repeat fixed
 }
 
 .interview-row {

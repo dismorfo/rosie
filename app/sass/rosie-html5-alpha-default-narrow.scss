@@ -1,3 +1,5 @@
+@import "_variables";
+
 body {
   min-width: 768px
 }
@@ -15,7 +17,7 @@ body {
 }
 
 body.front #page {
-  background: #000319 url(http://devweb1.dlib.nyu.edu/rosie/images/real-rosies-768px.jpg) top center no-repeat fixed
+  background: #000319 $bg-image-768 top center no-repeat fixed
 }
 
 .interview-row {
@@ -38,7 +40,7 @@ body.front #page {
   background: #5c75a8;
   background: rgba(92, 117, 168, 0.35);
   -pie-background: rgba(92, 117, 168, 0.35);
-  behavior: url("http://devweb1.dlib.nyu.edu/rosie/images/PIE.htc")
+  behavior: $bg-behavior;
 }
 
 .field-name-field-transcript,

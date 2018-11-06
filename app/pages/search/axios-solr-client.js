@@ -1193,12 +1193,12 @@ Client.prototype.createQuery = function(){
  * @api public
  */
 
-Client.prototype.ping = function(callback){
+Client.prototype.ping = function(callback) {
   return this.get(this.ADMIN_PING_HANDLER, callback);
 }
 
 Client.prototype.url = function(options) {
-  return options.protocol + '://' + options.host + ':' + options.port + options.fullPath;
+  return options.protocol + '://' + options.host + ':' + options.port + '/' + options.fullPath;
 }
 
 /**
@@ -1213,7 +1213,6 @@ Client.prototype.url = function(options) {
  * @return {http.ClientRequest}
  * @api public
  */
-
 Client.prototype.get = function(handler, query, callback) {
   var parameters = '';
   if (typeof query === 'function') {
@@ -1231,7 +1230,7 @@ Client.prototype.get = function(handler, query, callback) {
 
   var pathArray = [this.options.path,this.options.core,handler + '?' + parameters + '&wt=json'];
 
-  var fullPath = pathArray.filter(function(element){
+  var fullPath = pathArray.filter(function(element) {
                 return element;
              }).join('/');
 
@@ -1242,14 +1241,13 @@ Client.prototype.get = function(handler, query, callback) {
     protocol: this.options.protocol
   }
 
-  console.log(this.url(params))
-
   axios.get(this.url(params))
     .then(callback)
     .catch((error) => {
       console.log('Error! Could not reach the API.')
       console.log(error)
-    });
+  });
+
 }
 
 Client.prototype.getParameterByName = function (name, url) {
