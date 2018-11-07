@@ -31,6 +31,7 @@ const Massage = class {
       const sassConfiguration = agartha.configurations.sass()
       const sass = require(path.join(agartha.cwd(), 'lib/sassy'))
       const write = require(path.join(agartha.cwd(), 'lib/write'))
+      
       let ie8Result = sass.renderSync({
         file: path.join(app, 'app/sass/ie8.scss'),
         outputStyle: sassConfiguration.dist.options.style
@@ -41,49 +42,42 @@ const Massage = class {
         file: path.join(app, 'app/sass/ie7.scss'),
         outputStyle: sassConfiguration.dist.options.style
       })
-
       write(path.join(build, 'css/ie7.css'), ie7Result.css.toString())
 
       let adnResult = sass.renderSync({
         file: path.join(app, 'app/sass/rosie-html5-alpha-default-normal.scss'),
         outputStyle: sassConfiguration.dist.options.style
       })
-
       write(path.join(build, 'css/rosie-html5-alpha-default-normal.css'), adnResult.css.toString())
 
       let adn12Result = sass.renderSync({
         file: path.join(app, 'app/sass/alpha-default-normal-12.scss'),
         outputStyle: sassConfiguration.dist.options.style
       })
-
       write(path.join(build, 'css/alpha-default-normal-12.css'), adn12Result.css.toString())      
 
       let c1 = sass.renderSync({
         file: path.join(app, 'app/sass/rosie-html5-alpha-default-narrow.scss'),
         outputStyle: sassConfiguration.dist.options.style
       })
-
       write(path.join(build, 'css/rosie-html5-alpha-default-narrow.css'), c1.css.toString())      
 
       let c2 = sass.renderSync({
         file: path.join(app, 'app/sass/alpha-default-narrow-12.scss'),
         outputStyle: sassConfiguration.dist.options.style
       })
-
       write(path.join(build, 'css/alpha-default-narrow-12.css'), c2.css.toString())  
 
       let c3 = sass.renderSync({
         file: path.join(app, 'app/sass/rosie-html5-alpha-default-wide.scss'),
         outputStyle: sassConfiguration.dist.options.style
       })
-
       write(path.join(build, 'css/rosie-html5-alpha-default-wide.css'), c3.css.toString())  
 
       let c4 = sass.renderSync({
         file: path.join(app, 'app/sass/alpha-default-wide-12.scss'),
         outputStyle: sassConfiguration.dist.options.style
       })
-
       write(path.join(build, 'css/alpha-default-wide-12.css'), c4.css.toString())  
       
       

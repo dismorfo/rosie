@@ -1,7 +1,10 @@
 'use strict'
 
+// const hephaestus = require('hephaestus')
+
 module.exports = exports = class Interview extends process.agartha.Page {
   init () {
+
     /**
      * Hephaestus it's already present
      */

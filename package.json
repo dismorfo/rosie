@@ -23,6 +23,9 @@
   },
   "scripts": {
     "build": "./node_modules/hephaestus-cli/index.js fg",
-    "test-server": "./node_modules/hephaestus-cli/index.js fg && http-server build"
+    "test-server": "./node_modules/hephaestus-cli/index.js fg && ./node_modules/http-server/bin/http-server build"
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1"
   }
 }

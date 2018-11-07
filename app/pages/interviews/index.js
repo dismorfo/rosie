@@ -2,6 +2,7 @@
 
 module.exports = exports = class Interviews extends process.agartha.Page {
   init() {
+
     const agartha = process.agartha;
     const datasource = agartha.path.join(agartha.appDir(), 'app/localsource/interviews.json');
     const search = 'http://sites.dlib.nyu.edu/rosie';
