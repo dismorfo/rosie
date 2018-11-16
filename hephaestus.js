@@ -1,6 +1,6 @@
 'use strict'
 
-const agartha = process.agartha
+const { agartha } = require('hephaestus')
 const appUrl = agartha.get('ROSIE_APP_URL')
 const appRoot = agartha.get('ROSIE_APP_ROOT')
 const provider = agartha.get('ROSIE_PROVIDER')
