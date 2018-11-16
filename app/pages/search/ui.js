@@ -26,7 +26,7 @@ new Vue({
       host: '127.0.0.1',
       port: '8983',
       protocol: 'http',
-      path: '/solr/rosie'
+      path: 'solr/rosie'
     };
   },
   mounted: function () {
