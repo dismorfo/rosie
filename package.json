@@ -15,7 +15,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "hephaestus-cli": "https://github.com/dismorfo/hephaestus-cli/archive/1.0.1.tar.gz"
+    "hephaestus-cli": "https://github.com/dismorfo/hephaestus-cli/archive/1.0.2.tar.gz"
   },
   "preferGlobal": false,
   "engines": {
