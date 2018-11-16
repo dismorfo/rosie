@@ -13,5 +13,5 @@ module.exports = exports = {
   relic: 'scaffold',
   version: '0.0.1',
   hephaestus: '2.0.0',
-  provider: provider
+  provider: (provider) ? provider : null,
 }
