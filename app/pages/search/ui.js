@@ -45,7 +45,6 @@ new Vue({
       try {
         client.search(query, function (response) {
           var documents = response.data.response.docs; 
-          console.log('documents')
           documents.map(function (document) {
             vm.documents.push(document);
           });
