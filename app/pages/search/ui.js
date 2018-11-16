@@ -1,22 +1,32 @@
+
 var templateResult = `
-    <li class="result">
+    <li v-if="document.label" class="result">
       <h4 class="title"><a v-bind:href="document.url" v-html="document.label"></a></h4>
       <div class="content" v-html="document.ts_bio"></div>
-    </li>`;
+    </li>
+    `;
+
+var emptyResult = `
+  <li v-if="!documents.length" class="result-empty">
+    <h4>Sorry, no results found for searched term <em class="q" v-html="q"></em>. Try a different term.</h4>
+  </li>`;
 
 Vue.component('document-item', { props: ['document'], template: templateResult });
 
+Vue.component('empty-result', { props: ['q', 'documents'], template: emptyResult });
+
 new Vue({
-  el: '#app',        
+  el: '#app',
   data: function () {
     return {
-      documents : [],
+      q: null,
+      documents: [],
       rows: 10,
       start: 0,
       host: '127.0.0.1',
       port: '8983',
       protocol: 'http',
-      path: '/solr/collection1'
+      path: '/solr/rosie'
     };
   },
   mounted: function () {
@@ -31,27 +41,28 @@ new Vue({
   methods: {
     fetchDocuments: function () {
       var vm = this;
-      var client = new createClient({
+      client = new createClient({
         host: vm.host,
         port: vm.port,
         protocol: vm.protocol,
         path: vm.path,
       });
-      var q = client.getParameterByName('q');
+      vm.q = client.getParameterByName('q');
       var query = client.createQuery() 
-                        .q(q)
+                        .q(vm.q)
                         .start(vm.start)
                         .rows(vm.rows);
       try {
         client.search(query, function (response) {
-          var documents = response.data.response.docs; 
-          documents.map(function (document) {
-            vm.documents.push(document);
-          });
+          var documents = response.data.response.docs;
+          if (documents.length > 0) {
+            documents.map(function (document) {
+              vm.documents.push(document);
+            });
+          }          
         });
       }
       catch (error) {
-        console.log('catch')
         console.error(error);
       }
     }

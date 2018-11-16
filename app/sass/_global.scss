@@ -786,9 +786,16 @@ body.home #page {
   margin-bottom: 1em;
 }
 
+li.result-empty {
+  list-style: none;
+  margin-left: .5em;
+  font-size: 1em
+}
+
 .result {
   margin-bottom: 1em;
   h4.title {
     margin-bottom: initial;
   }
+
 }

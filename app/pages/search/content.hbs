@@ -9,5 +9,6 @@
   data-path="{{path}}" 
   data-rows="{{rows}}" 
   data-start="{{start}}">
-  <document-item v-for="document in documents" v-bind:document="document" v-bind:key="document.id"></document-item>
+  <document-item v-for="document in documents" v-bind:key="document.id" v-bind:document="document"></document-item>
+  <empty-result v-bind:q="q" v-bind:documents="documents"></empty-result>
 </ol>
