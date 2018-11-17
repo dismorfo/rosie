@@ -1242,10 +1242,9 @@ Client.prototype.get = function(handler, query, callback) {
   }
 
   axios.get(this.url(params))
-    .then(callback)
+    .then(callback, false)
     .catch((error) => {
-      console.log('Error! Could not reach the API.')
-      console.log(error)
+      callback(null, new Error(`Could not reach the API. ${error}`))
   });
 
 }
