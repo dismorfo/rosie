@@ -6,20 +6,14 @@ var templateResult = `
     </li>
     `;
 
-var emptyResult = `
-  <li v-if="!documents.length" class="result-empty">
-    <h4>Sorry, no results found for searched term <em class="q" v-html="q"></em>. Try a different term.</h4>
-  </li>`;
-
-Vue.component('document-item', { props: ['document'], template: templateResult });
-
-Vue.component('empty-result', { props: ['q', 'documents'], template: emptyResult });
+Vue.component('document-item', { props: ['document', 'q'], template: templateResult });
 
 new Vue({
   el: '#app',
   data: function () {
     return {
       q: null,
+      label: `Searching term <span class="loading"><span>.</span><span>.</span><span>.</span></span>`,
       documents: [],
       rows: 10,
       start: 0,
@@ -37,6 +31,11 @@ new Vue({
     this.protocol = this.$el.getAttribute('data-protocol');
     this.path = this.$el.getAttribute('data-path');
     this.fetchDocuments();
+  },
+  computed: {
+    hasDocuments: function() {
+      return this.documents.length > 0;
+    }
   },
   methods: {
     fetchDocuments: function () {
@@ -56,10 +55,14 @@ new Vue({
         client.search(query, function (response) {
           var documents = response.data.response.docs;
           if (documents.length > 0) {
+            vm.documents.push(document);
             documents.map(function (document) {
               vm.documents.push(document);
             });
-          }          
+          }
+          else {
+            vm.label = `Sorry, no results for <em class="q">${vm.q}</em>`;
+          }
         });
       }
       catch (error) {
