@@ -1156,7 +1156,7 @@ function Client(options){
  */
 
 Client.prototype.search = function(query,callback){
-   return this.get(this.SELECT_HANDLER, query, callback);
+  return this.get(this.SELECT_HANDLER, query, callback);
 }
 
 /**
@@ -1242,8 +1242,8 @@ Client.prototype.get = function(handler, query, callback) {
   }
 
   axios.get(this.url(params))
-    .then(callback, false)
-    .catch((error) => {
+    .then(callback)
+    .catch(function (error) {
       callback(null, new Error(`Could not reach the API. ${error}`))
   });
 
