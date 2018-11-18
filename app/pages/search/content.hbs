@@ -10,7 +10,10 @@
   <div v-if="hasDocuments" key="search-results">
     <h1 class="title">{{title}} for "<em class="q" v-html="q"></em>"</h1>
     <ol>
-      <document-item :document="document" v-for="document in documents"></document-item>
+      <li v-for="document in documents" class="result">
+        <h4 class="title"><a v-bind:href="document.url" v-html="document.label"></a></h4>
+        <div class="content" v-html="document.ts_bio"></div>
+      </li>
     </ol>
   </div>
   <div v-else key="search-status">

@@ -1,12 +1,4 @@
-
-var templateResult = `
-    <li v-if="document.label" class="result">
-      <h4 class="title"><a v-bind:href="document.url" v-html="document.label"></a></h4>
-      <div class="content" v-html="document.ts_bio"></div>
-    </li>
-    `;
-
-Vue.component('document-item', { props: ['document', 'q'], template: templateResult });
+'use strict';
 
 new Vue({
   el: '#app',
@@ -40,7 +32,7 @@ new Vue({
   methods: {
     fetchDocuments: function () {
       var vm = this;
-      client = new createClient({
+      var client = new createClient({
         host: vm.host,
         port: vm.port,
         protocol: vm.protocol,
@@ -55,7 +47,6 @@ new Vue({
         client.search(query, function (response) {
           var documents = response.data.response.docs;
           if (documents.length > 0) {
-            vm.documents.push(document);
             documents.map(function (document) {
               vm.documents.push(document);
             });

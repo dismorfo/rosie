@@ -1,10 +1,10 @@
-'use strict'
+'use strict';
 
-const agartha = process.agartha
-const host = agartha.get('ROSIE_HOST')
-const port = agartha.get('ROSIE_PORT')
-const protocol = agartha.get('ROSIE_PROTOCOL')
-const solrPath = agartha.get('ROSIE_SOLR_PATH')
+const { agartha } = require('hephaestus');
+const host = agartha.get('ROSIE_HOST');
+const port = agartha.get('ROSIE_PORT');
+const protocol = agartha.get('ROSIE_PROTOCOL');
+const solrPath = agartha.get('ROSIE_SOLR_PATH');
 
 module.exports = exports = {
   id : 'search',
@@ -24,4 +24,4 @@ module.exports = exports = {
       'ui.js'
     ]
   }
-}
+};

@@ -1,10 +1,9 @@
 'use strict'
 
-// const hephaestus = require('hephaestus')
+const { agartha } = require('hephaestus')
 
-module.exports = exports = class Interview extends process.agartha.Page {
+module.exports = exports = class Interview extends agartha.Page {
   init () {
-
     /**
      * Hephaestus it's already present
      */

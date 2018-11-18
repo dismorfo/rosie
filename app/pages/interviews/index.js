@@ -1,9 +1,13 @@
 'use strict';
 
-module.exports = exports = class Interviews extends process.agartha.Page {
-  init() {
+const { agartha } = require('hephaestus')
 
-    const agartha = process.agartha;
+module.exports = exports = class Interviews extends agartha.Page {
+  init() {
+    /**
+     * Hephaestus it's already present
+     */
+    const agartha = this.hephaestus
     const datasource = agartha.path.join(agartha.appDir(), 'app/localsource/interviews.json');
     const search = 'http://sites.dlib.nyu.edu/rosie';
     const replace = '';
