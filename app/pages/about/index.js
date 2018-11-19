@@ -4,13 +4,6 @@ module.exports = exports = {
   id: 'about',
   title: 'About',
   route : '/about/index.html',
-  menu: [
-    {
-      context: 'navbar',
-      label: 'About',
-      weight: 1
-    }
-  ],
   content : {
     main: {
       title : 'About The Project',
