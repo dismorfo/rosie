@@ -22,7 +22,13 @@ var app = new Vue({
     this.port = this.$el.getAttribute('data-port');
     this.protocol = this.$el.getAttribute('data-protocol');
     this.path = this.$el.getAttribute('data-path');
-    this.fetchDocuments();
+    this.q = this.getParameterByName('q');
+    if (this.q) {
+      this.fetchDocuments();
+    }
+    else {
+      this.label = `Please provide search term.`;
+    }
   },
   computed: {
     hasDocuments: function() {
@@ -30,6 +36,15 @@ var app = new Vue({
     }
   },
   methods: {
+    getParameterByName: function (name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\[\]]/g, '\\$&');
+      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    },
     fetchDocuments: function () {
       var vm = this;
       var client = new createClient({
@@ -38,7 +53,6 @@ var app = new Vue({
         protocol: vm.protocol,
         path: vm.path,
       });
-      vm.q = client.getParameterByName('q');
       var query = client.createQuery() 
                         .q(vm.q)
                         .start(vm.start)
@@ -52,7 +66,7 @@ var app = new Vue({
             });
           }
           else {
-            vm.label = `Sorry, no results for <em class="q">${vm.q}</em>`;
+            vm.label = `Sorry, no results for "<em class="q">${vm.q}</em>"`;
           }
         });
       }
