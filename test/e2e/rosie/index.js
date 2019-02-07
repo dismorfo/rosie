@@ -216,8 +216,10 @@ module.exports = {
           });
         });
       });
-    }    
+    }
+
     client.end();
+
   },
 
   after: function (done) {
