@@ -1,12 +1,10 @@
-const conf = require('../../../nightwatch.conf.js');
 const { appDir, appUrl, request } = require('hephaestus');
 const { join } = require('path');
+const { createServer } = require('http-server');
 const testServerUrl = appUrl();
-const httpServer = require('http-server');
-const devServerRoot = join(appDir(), 'build');
 
-const devServer = httpServer.createServer({
-  root: devServerRoot,
+const devServer = createServer({
+  root: join(appDir(), 'build'),
   robots: true,
   headers: {
     'Access-Control-Allow-Origin': '*',
@@ -222,7 +220,7 @@ module.exports = {
     client.end();
   },
 
-  'Finished': function (client) {
+  after: function (done) {
     devServer.close();
   }
 
