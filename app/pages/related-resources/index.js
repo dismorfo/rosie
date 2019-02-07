@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = exports = {
+module.exports = {
   id: 'related-resources',
   title: 'Related Resources',
   route: '/related-resources/index.html',

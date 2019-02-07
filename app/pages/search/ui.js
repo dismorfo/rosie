@@ -1,6 +1,6 @@
 'use strict';
 
-var app = new Vue({
+let app = new Vue({
   el: '#app',
   data: function () {
     return {
@@ -39,27 +39,27 @@ var app = new Vue({
     getParameterByName: function (name, url) {
       if (!url) url = window.location.href;
       name = name.replace(/[\[\]]/g, '\\$&');
-      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+      let regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
           results = regex.exec(url);
       if (!results) return null;
       if (!results[2]) return '';
       return decodeURIComponent(results[2].replace(/\+/g, ' '));
     },
     fetchDocuments: function () {
-      var vm = this;
-      var client = new createClient({
+      const vm = this;
+      const client = new createClient({
         host: vm.host,
         port: vm.port,
         protocol: vm.protocol,
         path: vm.path,
       });
-      var query = client.createQuery() 
+      const query = client.createQuery() 
                         .q(vm.q)
                         .start(vm.start)
                         .rows(vm.rows);
       try {
         client.search(query, function (response) {
-          var documents = response.data.response.docs;
+          const documents = response.data.response.docs;
           if (documents.length > 0) {
             documents.map(function (document) {
               vm.documents.push(document);

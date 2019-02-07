@@ -15,17 +15,28 @@
   },
   "license": "MIT",
   "dependencies": {
-    "hephaestus-cli": "https://github.com/dismorfo/hephaestus-cli/archive/1.0.2.tar.gz"
+    "@babel/preset-env": "^7.2.0",
+    "babel-preset-minify": "^0.5.0",
+    "hephaestus-cli": "^2.0.5"
   },
   "preferGlobal": false,
   "engines": {
     "node": ">= 8.0"
   },
   "scripts": {
+    "start": "./node_modules/hephaestus-cli/bin/hephaestus-cli fg && ./node_modules/http-server/bin/http-server /app/build",
     "forge": "./node_modules/hephaestus-cli/index.js fg",
-    "test-server": "./node_modules/hephaestus-cli/index.js fg && ./node_modules/http-server/bin/http-server build"
+    "test-server": "./node_modules/hephaestus-cli/bin/hephaestus-cli fg && ./node_modules/http-server/bin/http-server build",
+    "test": "./node_modules/nightwatch/bin/nightwatch --env default"
   },
   "devDependencies": {
-    "http-server": "^0.11.1"
+    "@babel/core": "^7.1.6",
+    "babel-cli": "^6.26.0",
+    "http-server": "^0.11.1",
+    "chromedriver": "^2.46.0",
+    "env2": "^2.2.2",
+    "nightwatch": "^1.0.18",
+    "selenium-download": "^2.0.13",
+    "selenium-server": "^3.141.59"
   }
 }

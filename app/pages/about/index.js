@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = exports = {
+module.exports = {
   id: 'about',
   title: 'About',
   route : '/about/index.html',

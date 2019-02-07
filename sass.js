@@ -1,11 +1,11 @@
 'use strict'
 
 const path = require('path');
-const { agartha } = require('hephaestus');
+const agartha = require('hephaestus');
 const appBuildDir = agartha.appBuildDir();
 const appDir = agartha.appDir();
 
-module.exports = exports = [
+module.exports = [
   {
     file: path.join(appDir, 'app/sass/style.scss'),
     outFile: path.join(appBuildDir, 'css/style.css'),

@@ -1,8 +1,8 @@
 'use strict'
 
-const { agartha } = require('hephaestus')
+const agartha = require('hephaestus')
 
-module.exports = exports = class Interview extends agartha.Page {
+module.exports = class Interview extends agartha.Page {
   init () {
     /**
      * Hephaestus it's already present
