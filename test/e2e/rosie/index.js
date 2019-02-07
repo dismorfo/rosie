@@ -1,8 +1,7 @@
 const conf = require('../../../nightwatch.conf.js');
-const { appDir, appUrl } = require('hephaestus');
-const testServerUrl = appUrl();
+const { appDir, appUrl, request } = require('hephaestus');
 const { join } = require('path');
-const request = require('request');
+const testServerUrl = appUrl();
 const httpServer = require('http-server');
 const devServerRoot = join(appDir(), 'build');
 
