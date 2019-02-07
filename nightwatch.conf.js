@@ -1,5 +1,8 @@
 require('env2')('.env'); // optionally store your environment variables in .env
 
+const { join } = require('path')
+const { get } = require('hephaestus');
+
 const seleniumServer = require("selenium-server");
 const chromedriver = require("chromedriver");
 const PKG = require('./package.json'); // so we can get the version of the project
@@ -20,7 +23,7 @@ const config = { // we use a nightwatch.conf.js file so we can include comments 
       "webdriver.chrome.driver" : chromedriver.path
     }
   },
-  "test_workers" : {"enabled" : true, "workers" : "auto"}, // perform tests in parallel where possible
+  "test_workers" : { "enabled" : true, "workers" : "auto" }, // perform tests in parallel where possible
   "test_settings": {
     "default": {
       "launch_url": "http://localhost",
