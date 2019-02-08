@@ -19,7 +19,7 @@ RUN npm rebuild node-sass
 
 ADD . .
 
-EXPOSE 8080 
+EXPOSE 8080
 
 CMD [ "npm", "start" ]
 

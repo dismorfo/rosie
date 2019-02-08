@@ -1198,7 +1198,7 @@ Client.prototype.ping = function(callback) {
 }
 
 Client.prototype.url = function(options) {
-  return options.protocol + '://' + options.host + ':' + options.port + '/' + options.fullPath;
+  return options.protocol + '//' + options.host + ':' + options.port + options.fullPath;
 }
 
 /**

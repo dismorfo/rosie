@@ -9,10 +9,10 @@ let app = new Vue({
       documents: [],
       rows: 10,
       start: 0,
-      host: '127.0.0.1',
+      host: 'solr.local',
       port: '8983',
-      protocol: 'http',
-      path: 'solr/rosie'
+      protocol: 'http:',
+      path: '/solr/rosie'
     };
   },
   mounted: function () {
@@ -59,6 +59,7 @@ let app = new Vue({
                         .rows(vm.rows);
       try {
         client.search(query, function (response) {
+          console.log(response)
           const documents = response.data.response.docs;
           if (documents.length > 0) {
             documents.map(function (document) {
