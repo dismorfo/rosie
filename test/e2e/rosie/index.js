@@ -15,12 +15,14 @@ const devServer = createServer({
 module.exports = {
   tags: ['rosie'],
   '@disabled': false,
-  'Started': function (client) {
+
+  before: done => {
     console.log('[notice]: Test Suite - The Real Rosie the Riveter Project');
     console.log(`[notice]: Test server URL ${testServerUrl}`);
     devServer.listen(8080);
-  },   
-  'Homepage' : function (client) {    
+  },
+
+  'Homepage': client => {
     client
       .url(testServerUrl)
       .pause(1000);
@@ -30,7 +32,7 @@ module.exports = {
     client.expect.element('aside').to.be.present;
     client.end();
   },
-  'About page' : function (client) {
+  'About page': client =>  {
     client
       .url(`${testServerUrl}/about`)
       .pause(1000);
@@ -39,7 +41,7 @@ module.exports = {
     client.assert.containsText('.main-content p:first-child', 'During the World War II');
     client.end();
   },  
-  'Related Resources page' : function (client) {
+  'Related Resources page': client => {
     client
       .url(`${testServerUrl}/related-resources`)
       .pause(1000);
@@ -48,23 +50,22 @@ module.exports = {
     client.expect.element('.field-items ul').to.be.present;
     client.end();
   },  
-  'Interviews page' : function (client) {
+  'Interviews page': client => {
     client
       .url(`${testServerUrl}/interviews`)
       .pause(1000);
     client.expect.element('body').to.be.present;
     client.end();
   },
-  'Interviews page has 33 interviews' : function (client) {
+  'Interviews page has 33 interviews': client => {
     client
       .url(`${testServerUrl}/interviews`)    
-    client.elements('css selector', 'ul.interview-list li', function (result) {
-      return this.assert.ok(result.value.length === 33);
+    client.elements('css selector', 'ul.interview-list li', result => {
+      return client.assert.ok(result.value.length === 33);
     });
     client.end();
   },
-
-  'Individual interview pages' : function (client) {
+  'Individual interview pages': client => {
     const request = require('request');
     let interviews = [
       {
@@ -222,7 +223,7 @@ module.exports = {
 
   },
 
-  after: function (done) {
+  after: done => {
     devServer.close();
   }
 

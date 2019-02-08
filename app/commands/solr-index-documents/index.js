@@ -19,52 +19,64 @@ const SolrIndexdDocuments = class {
   get onDone () {
     return false
   }
+  get list () {
+    return true
+  }
   action () {
-    const agartha = process.agartha    
-    const path = agartha.path
-    const fs = agartha.path
     try {
-      const solrVersion = '5.1'
-      const corePath = agartha.get('ROSIE_SOLR_CORE_PATH')
-      const host = agartha.get('ROSIE_SOLR_HOST')
-      const port = agartha.get('ROSIE_SOLR_PORT')
-      const documentsPathEnv = agartha.get('ROSIE_SOLR_DOCUMENTS_PATH')
-      const documentsPath = (documentsPathEnv) ? documentsPathEnv : path.join(agartha.appDir(), 'app/localsource/solr-index-documents')
-      if (agartha.exists(documentsPath)) {
-        const documents = agartha.readdirSync(documentsPath)
-        // https://www.npmjs.com/package/solr-client
-        const discovery = require(path.join(agartha.cwd(), '..', 'solr-client'))
-        const client = discovery.createClient({
-          host: (host) ? host : 'http://127.0.0.1:8080',
-          port: (port) ? port : 8983,
-          path: (corePath) ? corePath : '/solr/rosie',
-          solrVersion: solrVersion,
-          get_max_request_entity_size: 1000,
-          autoCommit: true
-         })
-         agartha._.each(documents, (document) => {
-          const doc = agartha.read.json(path.join(documentsPath, document))
-          if (doc) {
-            client.add({
-              id : doc.id,
-              url: doc.url,
-              ts_image: doc.image,
-              label : doc.label,
-              hash: doc.hash,
-              content : doc.content,
-              ts_bio: doc.description,
-              sort_name: doc.label
-            }, (err) => {
-                if (err) console.log(err)
-            })
-          }
-        })
+      const { appDir, get, cwd, readdirSync, exists, read, exit} = require('hephaestus');
+      const { join } = require('path');
+      const url = require('url');
+      const _ = require('underscore');
+      const SolrNode = require('solr-node')
+      const { createClient } = require(join(cwd(), '..', 'solr-client'));
+      const solrVersion = '5.1';
+      const discoveryUrl = new URL(get('ROSIE_DISCOVERY'));      
+      const discoveryHost = discoveryUrl.hostname;
+      const discoveryPort = discoveryUrl.port;
+      const discoveryPath = discoveryUrl.pathname;
+      const discoveryProtocol = discoveryUrl.protocol.replace(':', '');
+      const discoveryCore = null;
+      const discoveryRootPath = null;
+      const documentsPathEnv = get('ROSIE_SOLR_DOCUMENTS_PATH');
+      const documentsPath = (documentsPathEnv) ? documentsPathEnv : join(appDir(), 'app/localsource/solr-index-documents');
+      if (exists(documentsPath)) {
+        const documents = readdirSync(documentsPath);
+        const client = new SolrNode({
+          host: (discoveryHost) ? discoveryHost : 'solr.local',
+          port: (discoveryPort) ? discoveryPort : 8983,
+          core: (discoveryCore) ? discoveryCore : 'rosie',
+          rootPath: (discoveryRootPath) ? discoveryRootPath : 'solr', 
+          protocol: (discoveryProtocol) ? discoveryProtocol : 'http'          
+        });
+        _.each(documents, document => {
+           const doc = read.json(join(documentsPath, document));
+           if (doc) {
+             client.update({
+               id : doc.id,
+               url: doc.url,
+               ts_image: doc.image,
+               label : doc.label,
+               hash: doc.hash,
+               content : doc.content,
+               ts_bio: doc.description,
+               sort_name: doc.label
+             }, (error, result) => {
+                if (error) {
+                  console.log(error);
+                }
+                else {
+                  console.log('Response:', result.responseHeader);
+                }                
+             });
+           }
+        });
       }
     } catch (e) {
-      console.log(e)
-      agartha.exit(e)
+      console.log(e);
+      exit(e);
     }
   }
 }
 
-module.exports = exports = SolrIndexdDocuments
+module.exports = exports = SolrIndexdDocuments;
