@@ -15,23 +15,20 @@
   },
   "license": "MIT",
   "dependencies": {
-    "hephaestus-cli": "^2.0.5"
+    "hephaestus-cli": "^2.0.5",
+    "solr-node": "^1.1.1"
   },
   "preferGlobal": false,
   "engines": {
     "node": ">= 8.0"
   },
   "scripts": {
-    "start": "./node_modules/hephaestus-cli/bin/hephaestus-cli fg && ./node_modules/http-server/bin/http-server /app/build",
-    "forge": "./node_modules/hephaestus-cli/index.js fg",
-    "test-server": "./node_modules/hephaestus-cli/bin/hephaestus-cli fg && ./node_modules/http-server/bin/http-server build",
-    "test": "./node_modules/nightwatch/bin/nightwatch --env default"
+    "build": "./node_modules/hephaestus-cli/index.js forge",
+    "start": "./node_modules/hephaestus-cli/bin/hephaestus-cli fg && ./node_modules/http-server/bin/http-server build",    
+    "test": "./node_modules/hephaestus-cli/bin/hephaestus-cli forge && ./node_modules/nightwatch/bin/nightwatch --env default",
+    "test-server": "./node_modules/hephaestus-cli/bin/hephaestus-cli forge && ./node_modules/http-server/bin/http-server build"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.6",
-    "@babel/preset-env": "^7.2.0",
-    "babel-cli": "^6.26.0",
-    "babel-preset-minify": "^0.5.0",
     "chromedriver": "^2.46.0",
     "env2": "^2.2.2",
     "http-server": "^0.11.1",
