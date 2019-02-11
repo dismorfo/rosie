@@ -37,7 +37,6 @@
     "prettier": "1.16.4",
     "prettierrc": "0.0.0-5",
     "selenium-download": "^2.0.13",
-    "selenium-server": "^3.141.59",
-    "solr-node": "^1.1.1"
+    "selenium-server": "^3.141.59"
   }
 }
