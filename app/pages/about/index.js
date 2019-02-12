@@ -1,5 +1,7 @@
 'use strict'
 
+const commonLib = require(resolve(appDir(), 'app/javascript/commonLib.js'));
+
 module.exports = {
   id: 'about',
   title: 'About',
@@ -11,14 +13,6 @@ module.exports = {
     }
   },
   assets : {
-    js : [
-      'jquery.1.4.4.js', 
-      'jquery.once.1.2.js', 
-      'drupal.js', 
-      'jquery.formalize.js', 
-      'omega-mediaqueries.js', 
-      'omega-equalheights.js',
-      'settings.js'
-    ]
+    js : commonLib
   }
 }

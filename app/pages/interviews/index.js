@@ -1,59 +1,41 @@
 'use strict';
 
-const agartha = require('hephaestus')
+const { appDir, exists, get, Page, read } = require('hephaestus');
+const { basename, extname, resolve } = require('path');
+const _ = require('underscore');
 
-module.exports = class Interviews extends agartha.Page {
+class Interviews extends Page {
   init() {
-    /**
-     * Hephaestus it's already present
-     */
-    const agartha = this.hephaestus
-    const datasource = agartha.path.join(agartha.appDir(), 'app/localsource/interviews.json');
+    const datasource = resolve(appDir(), 'app/localsource/interviews.json');
     const search = 'http://sites.dlib.nyu.edu/rosie';
     const replace = '';
     const id = 'interviews';
     const title = 'Interviews';
     const route = '/interviews/index.html';
-    const menu = [ {
-        "context": "navbar",
-        "label": "Interviews",
-        "weight": 3
-      }
-    ];
-    let content = {};
-    this.addJS([
-      'jquery.1.4.4.js', 
-      'jquery.once.1.2.js', 
-      'drupal.js', 
-      'jquery.formalize.js', 
-      'omega-mediaqueries.js', 
-      'omega-equalheights.js', 
-      'settings.js'
-    ]);    
+    const commonLib = require(resolve(appDir(), 'app/javascript/commonLib.js'));
+    let content = {};    
+    this.addJS(commonLib);    
     content.grid = 12;
     content.title = 'Interviews';
     content.interviewee = [];
-    if (agartha.exists(datasource)) {
-      const source = agartha.read.json(datasource);
-      const docs = source.response.docs;
-      agartha._.each(docs, (document) => {
+    if (exists(datasource)) {
+      const source = read.json(datasource);
+      _.each(source.response.docs, document => {
         let interviewee = {};
         let image = document.metadata.rosie_representative_image.value[0];
-        let imageBasename = document.identifier + '-interview-thumbnail' + agartha.path.extname(agartha.path.basename(image));
-        interviewee.url = agartha.get('appUrl') + document.entity_path.replace(search, replace);
+        let imageBasename = document.identifier + '-interview-thumbnail' + extname(basename(image));
+        interviewee.url = get('appUrl') + document.entity_path.replace(search, replace);
         interviewee.description = document.metadata.description.value.safe_summary;
-        interviewee.image = agartha.get('appUrl') + '/images/' + imageBasename;
+        interviewee.image = get('appUrl') + '/images/' + imageBasename;
         interviewee.name = document.entity_title;
         content.interviewee.push(interviewee);
       });
       /**
        * Pages need 'id' and 'route' properties
        */
-      this.render({
-        id: id,
-        route: route,
-        content: content
-      });
+      this.render({ id: id, route: route, content: content });
     }
   }
 }
+
+module.exports = Interviews;
