@@ -223,6 +223,16 @@ module.exports = {
 
   },
 
+  'Search page': client =>  {
+    client
+      .url(`${testServerUrl}/search/?q=rosie`)
+      .pause(5000);
+    client.expect.element('body').to.be.present;
+    client.assert.containsText('#app h1.title', 'Search results for "rosie"');
+    client.expect.element('#app li.result').to.be.present;
+    client.end();
+  },
+
   after: done => {
     devServer.close();
   }
