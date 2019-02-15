@@ -1,69 +1,80 @@
-'use strict'
+'use strict';
 
 const SolrBuildDocuments = class {
   get command () {
-    return 'solr-build-documents'
+    return 'solr-build-documents';
   }
   get alias () {
-    return false
+    return false;
   }
   get description () {
-    return 'Build Rosie Solr documents'
+    return 'Build Rosie Solr documents';
   }
   get options () {
-    return []
+    return [];
   }
   get onInit () {
-    return false
+    return false;
   }
   get onDone () {
-    return false
+    return false;
+  }
+  get list () {
+    return true;
   }
   action () {
-    const agartha = process.agartha    
-    const path = agartha.path
+    const { extname, join, resolve } = require('path');
+    const _ = require('underscore');
+    const { appDir, appUrl, get, exists, exit, log, mkdir, read, write } = require('hephaestus');
     try {
-      const datasource = path.join(agartha.appDir(), 'app/localsource/interviews.json')
-      if (agartha.exists(datasource)) {
-        const source = agartha.read.json(datasource)
-        const transcriptsDir = path.join(agartha.appDir(), 'app/pages/interview/transcripts')
-        const documentsPath = path.join(agartha.appDir(), 'app/localsource/solr-index-documents')
-        if (agartha.exists(documentsPath)) {
-          agartha.mkdir(documentsPath)
+      const datasource = resolve(appDir(), 'app/localsource/interviews.json');
+      if (exists(datasource)) {
+        const source = read.json(datasource);
+        const transcriptsDir = resolve(appDir(), 'app/pages/interview/transcripts');
+        const documentsPath = resolve(appDir(), 'app/localsource/solr-index-documents');
+        
+        if (exists(documentsPath)) {
+          mkdir(documentsPath);
         }
-        agartha._.each(source.response.docs, (document, index) => {
-          const remove = 'http://sites.dlib.nyu.edu/rosie/sites/default/files/transcripts/'
-          const transcript = agartha.path.join(transcriptsDir, document.metadata.transcript.value[0].replace(remove, ''))
-          const id = document.entity_path.replace('http://sites.dlib.nyu.edu/rosie/interviews/', '')
-          let image = document.metadata.rosie_representative_image.value[0].replace('http://sites.dlib.nyu.edu/rosie/sites/default/files/representative_images/', '')
-              image = image.replace('http://sites.dlib.nyu.edu/rosie/sites/default/files/ROSIE_INTERVIEW_012/', '')
-          let imageBasename = agartha.path.basename(image)     
-          let name = document.identifier + '-interview-thumbnail' + agartha.path.extname(image)
-          const imageUrl = agartha.appUrl() + '/images/' + name
-          const description = document.metadata.description.value.summary
+
+        const remove = 'http://sites.dlib.nyu.edu/rosie/sites/default/files/transcripts/';
+        const replaceStringImage = 'http://sites.dlib.nyu.edu/rosie/sites/default/files/ROSIE_INTERVIEW_012/';
+        const replaceStringImageUrl = 'http://sites.dlib.nyu.edu/rosie/sites/default/files/representative_images/';
+        const replaceEntityPath = 'http://sites.dlib.nyu.edu/rosie/interviews/';
+
+        _.each(source.response.docs, document => {
+          const transcript = join(transcriptsDir, document.metadata.transcript.value[0].replace(remove, ''));
+          const id = document.entity_path.replace(replaceEntityPath, '');
+          const image = document.metadata.rosie_representative_image.value[0].replace(replaceStringImageUrl, '').replace(replaceStringImage, '');
+          let name = document.identifier + '-interview-thumbnail' + extname(image);
+          const imageUrl = appUrl() + '/images/' + name;
+          const description = document.metadata.description.value.summary;
+          const pdf = read.pdf(transcript);
+          
           let doc = {
             id: id,
             identifier: document.metadata.identifier.value[0],
-            hash: agartha.get('shortName'),
-            url: agartha.get('appUrl') + '/interviews/' + id,
+            hash: get('shortName'),
+            url: get('appUrl') + '/interviews/' + id,
             label: document.entity_title,
             description: description,
             image: imageUrl,
             type: document.type,
             content: description
-          }
-          let pdf = agartha.read.pdf(transcript)
-          pdf.on('pdfParser_dataReady', pdfData => {
-            doc.content = doc.description + ' ' + pdf.getRawTextContent()
-            agartha.write(path.join(documentsPath, id + '.json'), JSON.stringify(doc))
-          })
-        })        
+          };
+          
+          pdf.on('pdfParser_dataReady', () => {
+            doc.content = doc.description + ' ' + pdf.getRawTextContent();
+            write(resolve(documentsPath, id + '.json'), JSON.stringify(doc));
+          });
+
+        });
       }
-    } catch (e) {
-      console.log(e)
-      agartha.exit(e)
+    } catch (error) {
+      log(error, error);
+      exit(error);
     }
   }
-}
+};
 
-module.exports = exports = SolrBuildDocuments
+module.exports = exports = SolrBuildDocuments;

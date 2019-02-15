@@ -1,4 +1,4 @@
-const { appDir, appUrl, request } = require('hephaestus');
+const { appDir, appUrl, log } = require('hephaestus');
 const { join } = require('path');
 const { createServer } = require('http-server');
 const testServerUrl = appUrl();
@@ -16,9 +16,9 @@ module.exports = {
   tags: ['rosie'],
   '@disabled': false,
 
-  before: done => {
-    console.log('[notice]: Test Suite - The Real Rosie the Riveter Project');
-    console.log(`[notice]: Test server URL ${testServerUrl}`);
+  before: () => {
+    log('[notice]: Test Suite - The Real Rosie the Riveter Project', 'notice');
+    log(`[notice]: Test server URL ${testServerUrl}`, 'notice');
     devServer.listen(8080);
   },
 
@@ -233,7 +233,7 @@ module.exports = {
     client.end();
   },
 
-  after: done => {
+  after: () => {
     devServer.close();
   }
 
