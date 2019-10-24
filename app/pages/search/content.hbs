@@ -1,12 +1,5 @@
 <a id="main-content"></a>
-<div id="app" 
-  class="container"
-  data-host="{{host}}" 
-  data-port="{{port}}" 
-  data-protocol="{{protocol}}" 
-  data-path="{{path}}" 
-  data-rows="{{rows}}" 
-  data-start="{{start}}">
+<div id="app" class="container" data-discovery="{{discovery}}" data-rows="{{rows}}" data-start="{{start}}">
   <div v-if="hasDocuments" key="search-results">
     <h1 class="title">{{title}} for "<em class="q" v-html="q"></em>"</h1>
     <ol>

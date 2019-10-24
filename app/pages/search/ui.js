@@ -1,33 +1,26 @@
-'use strict';
-
-let app = new Vue({
+new Vue({
   el: '#app',
   data: function () {
     return {
       q: null,
-      label: `Searching term <span class="loading"><span>.</span><span>.</span><span>.</span></span>`,
+      label: 'Searching term <span class="loading"><span>.</span><span>.</span><span>.</span></span>',
       documents: [],
       rows: 10,
       start: 0,
-      host: 'solr.local',
-      port: '8983',
-      protocol: 'http:',
-      path: '/solr/rosie'
+      discovery: '',
+      isBusy: true,
     };
   },
   mounted: function () {
     this.rows = this.$el.getAttribute('data-rows');
     this.start = this.$el.getAttribute('data-start');
-    this.host = this.$el.getAttribute('data-host');
-    this.port = this.$el.getAttribute('data-port');
-    this.protocol = this.$el.getAttribute('data-protocol');
-    this.path = this.$el.getAttribute('data-path');
+    this.discovery = this.$el.getAttribute('data-discovery');
     this.q = this.getParameterByName('q');
     if (this.q) {
       this.fetchDocuments();
     }
     else {
-      this.label = `Please provide search term.`;
+      this.label = 'Please provide search term.';
     }
   },
   computed: {
@@ -47,33 +40,29 @@ let app = new Vue({
     },
     fetchDocuments: function () {
       const vm = this;
-      const client = new createClient({
-        host: vm.host,
-        port: vm.port,
-        protocol: vm.protocol,
-        path: vm.path,
-      });
-      const query = client.createQuery() 
-                        .q(vm.q)
-                        .start(vm.start)
-                        .rows(vm.rows);
-      try {
-        client.search(query, function (response) {
-          console.log(response)
-          const documents = response.data.response.docs;
+        fetch(`${this.discovery}/${this.q}`)
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error('Network response was not ok.');
+        })
+        .then((data) => {
+          const documents = data.response.docs;
           if (documents.length > 0) {
-            documents.map(function (document) {
+            documents.map(document => {
               vm.documents.push(document);
             });
-          }
-          else {
+          } else {
             vm.label = `Sorry, no results for "<em class="q">${vm.q}</em>"`;
           }
+        })
+        .finally(() => {
+          this.isBusy = false;
+        })
+        .catch((error) => {
+          console.log('Looks like there was a problem: \n', error);
         });
-      }
-      catch (error) {
-        console.error(error);
-      }
     }
   }
 });
