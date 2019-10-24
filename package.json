@@ -23,7 +23,7 @@
     "node": ">= 8.0"
   },
   "scripts": {
-    "build": "./node_modules/hephaestus-cli/index.js forge",
+    "build": "./node_modules/hephaestus-cli/bin/hephaestus-cli forge",
     "start": "./node_modules/hephaestus-cli/bin/hephaestus-cli fg && ./node_modules/http-server/bin/http-server build",
     "test": "./node_modules/hephaestus-cli/bin/hephaestus-cli forge && ./node_modules/nightwatch/bin/nightwatch --env default",
     "test-server": "./node_modules/hephaestus-cli/bin/hephaestus-cli forge && ./node_modules/http-server/bin/http-server build"
