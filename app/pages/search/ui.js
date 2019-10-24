@@ -40,7 +40,7 @@ new Vue({
     },
     fetchDocuments: function () {
       const vm = this;
-        fetch(`${this.discovery}/${this.q}`)
+        fetch(`${this.discovery}/select?q=${this.q}&rows=${this.rows}&start=${this.start}&wt=json`)
         .then(response => {
           if (response.ok) {
             return response.json();
