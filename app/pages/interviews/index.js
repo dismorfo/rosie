@@ -1,7 +1,17 @@
-'use strict';
+const { 
+  appDir, 
+  exists, 
+  get, 
+  Page, 
+  read 
+} = require('hephaestus');
 
-const { appDir, exists, get, Page, read } = require('hephaestus');
-const { basename, extname, resolve } = require('path');
+const { 
+  basename, 
+  extname, 
+  resolve 
+} = require('path');
+
 const _ = require('underscore');
 
 class Interviews extends Page {

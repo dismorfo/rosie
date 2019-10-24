@@ -1,9 +1,25 @@
-'use strict'
+const { 
+  appBuildDir, 
+  appDir, 
+  copy, 
+  exists, 
+  get, 
+  Page, 
+  read 
+} = require('hephaestus');
 
-const { appBuildDir, appDir, copy, exists, get, Page, read } = require('hephaestus');
-const { resolve, extname, basename } = require('path');
-const { statSync } = require('fs');
+const { 
+  resolve, 
+  extname, 
+  basename 
+} = require('path');
+
+const { 
+  statSync 
+} = require('fs');
+
 const _ = require('underscore');
+
 const commonLib = require(resolve(appDir(), 'app/javascript/commonLib.js'));
 
 class Interview extends Page {
@@ -43,17 +59,17 @@ class Interview extends Page {
             ackknowledgements = document.metadata.rosie_ackknowledgements.value[0]
           }
         }      
-        content.grid = 12
-        content.appUrl = appUrl
-        content.title = document.entity_title
-        content.pdf_path = get('appUrl') + '/transcripts/' + transcriptBasename
-        content.pdf_length = stats.size
-        content.path_filename = transcriptBasename
-        content.handle = handle
-        content.acknowledgements = ackknowledgements
-        content.description = description
-        content.image = get('appUrl') + '/images/' + imageBasename
-        content.video = video
+        content.grid = 12;
+        content.appUrl = appUrl;
+        content.title = document.entity_title;
+        content.pdf_path = get('appUrl') + '/transcripts/' + transcriptBasename;
+        content.pdf_length = stats.size;
+        content.path_filename = transcriptBasename;
+        content.handle = handle;
+        content.acknowledgements = ackknowledgements;
+        content.description = description;
+        content.image = get('appUrl') + '/images/' + imageBasename;
+        content.video = video;
         /**
          * Pages need 'id' and 'route' properties
          */
@@ -61,8 +77,8 @@ class Interview extends Page {
           id: id,
           route: document.entity_path.replace(search, replace)  + '/index.html' ,
           content: content
-        })
-      })
+        });
+      });
     }
   }
 }
