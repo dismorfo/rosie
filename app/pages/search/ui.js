@@ -40,7 +40,9 @@ new Vue({
     },
     fetchDocuments: function () {
       const vm = this;
-        fetch(`${this.discovery}/select?q=${this.q}&rows=${this.rows}&start=${this.start}&wt=json`)
+        fetch(`${this.discovery}?q=${this.q}`, {
+          method: 'GET'
+        })
         .then(response => {
           if (response.ok) {
             return response.json();
@@ -48,10 +50,9 @@ new Vue({
           throw new Error('Network response was not ok.');
         })
         .then((data) => {
-          const documents = data.response.docs;
-          if (documents.length > 0) {
-            documents.map(document => {
-              vm.documents.push(document);
+          if (parseInt(data.hits.found, 10) > 0) {
+            data.hits.hit.map(document => {
+              vm.documents.push(document.fields);
             });
           } else {
             vm.label = `Sorry, no results for "<em class="q">${vm.q}</em>"`;

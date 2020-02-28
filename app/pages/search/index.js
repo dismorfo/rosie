@@ -6,7 +6,7 @@ module.exports = {
   id: 'search',
   title: 'Search results',
   route: '/search/index.html',
-  discovery: get('ROSIE_DISCOVERY'),
+  discovery: get('DISCOVERY'),
   rows: 100,
   start: 0,
   assets: {
@@ -16,3 +16,4 @@ module.exports = {
     ]
   }
 };
+  

@@ -1,6 +1,7 @@
 const { 
   appBuildDir, 
   appDir, 
+  appUrl,
   copy, 
   exists, 
   get, 
@@ -26,7 +27,6 @@ class Interview extends Page {
   init () {
     const datasource = resolve(appDir(), 'app/localsource/interviews.json');
     const videosMap = resolve(appDir(), 'app/localsource/video_links.json');
-    const appUrl = get('appUrl');
     // copy transcripts files into public directory
     copy(resolve(appDir(), 'app/pages/interview/transcripts'),  resolve(appBuildDir(), 'transcripts'), err => {
       if (err) {
@@ -60,15 +60,15 @@ class Interview extends Page {
           }
         }      
         content.grid = 12;
-        content.appUrl = appUrl;
+        content.appUrl = appUrl();
         content.title = document.entity_title;
-        content.pdf_path = get('appUrl') + '/transcripts/' + transcriptBasename;
+        content.pdf_path = `${content.appUrl}/transcripts/${transcriptBasename}`
         content.pdf_length = stats.size;
         content.path_filename = transcriptBasename;
         content.handle = handle;
         content.acknowledgements = ackknowledgements;
         content.description = description;
-        content.image = get('appUrl') + '/images/' + imageBasename;
+        content.image = `${content.appUrl}/images/${imageBasename}`;
         content.video = video;
         /**
          * Pages need 'id' and 'route' properties

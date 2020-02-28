@@ -1,5 +1,6 @@
 const { 
   appDir, 
+  appUrl,
   exists, 
   get, 
   Page, 
@@ -17,10 +18,9 @@ const _ = require('underscore');
 class Interviews extends Page {
   init() {
     const datasource = resolve(appDir(), 'app/localsource/interviews.json');
-    const search = 'http://sites.dlib.nyu.edu/rosie';
+    const search = 'http://sites.dlib.nyu.edu/rosie/';
     const replace = '';
     const id = 'interviews';
-    const title = 'Interviews';
     const route = '/interviews/index.html';
     const commonLib = require(resolve(appDir(), 'app/javascript/commonLib.js'));
     let content = {};    
@@ -34,9 +34,9 @@ class Interviews extends Page {
         let interviewee = {};
         let image = document.metadata.rosie_representative_image.value[0];
         let imageBasename = document.identifier + '-interview-thumbnail' + extname(basename(image));
-        interviewee.url = get('appUrl') + document.entity_path.replace(search, replace);
+        interviewee.url = `${appUrl()}/${document.entity_path.replace(search, replace)}`;
         interviewee.description = document.metadata.description.value.safe_summary;
-        interviewee.image = get('appUrl') + '/images/' + imageBasename;
+        interviewee.image = `${appUrl()}/images/${imageBasename}`;
         interviewee.name = document.entity_title;
         content.interviewee.push(interviewee);
       });

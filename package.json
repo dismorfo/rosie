@@ -16,7 +16,8 @@
   "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.2.2",
-    "hephaestus-cli": "^2.0.5"
+    "hephaestus-cli": "^2.0.5",
+    "s3-node-client": "^4.4.4"
   },
   "preferGlobal": false,
   "engines": {
@@ -24,9 +25,9 @@
   },
   "scripts": {
     "build": "./node_modules/hephaestus-cli/bin/hephaestus-cli forge",
-    "start": "./node_modules/hephaestus-cli/bin/hephaestus-cli fg && ./node_modules/http-server/bin/http-server build",
-    "test": "./node_modules/hephaestus-cli/bin/hephaestus-cli forge && ./node_modules/nightwatch/bin/nightwatch --env default",
-    "test-server": "./node_modules/hephaestus-cli/bin/hephaestus-cli forge && ./node_modules/http-server/bin/http-server build"
+    "serve": "./node_modules/hephaestus-cli/bin/hephaestus-cli fg && ./node_modules/http-server/bin/http-server build",
+    "aws": "CLOUD_PROVIDER=aws PROVIDER=https://sites.dlib.nyu.edu/media DISCOVERY_ENDPOINT=https://o7r5uwe6d7.execute-api.us-east-1.amazonaws.com/search ./node_modules/hephaestus-cli/bin/hephaestus-cli forge",    
+    "test": "./node_modules/hephaestus-cli/bin/hephaestus-cli forge && ./node_modules/nightwatch/bin/nightwatch --env default"
   },
   "devDependencies": {
     "chromedriver": "^2.46.0",
