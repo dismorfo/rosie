@@ -49,7 +49,6 @@ class Interview extends Page {
         const stats = statSync(resolve(appDir(), 'app/pages/interview/transcripts', transcriptBasename));
         const handle = document.metadata.handle.value[0];
         const description = document.metadata.description.value.safe_value;
-        const route = document.entity_path.replace(search, replace)  + '/index.html';
         const id = document.entity_path.replace(search, replace).replace('/interviews/', '');
         let image = document.metadata.rosie_representative_image.value[0]
         let imageBasename = document.identifier + '-interview-thumbnail' + extname(basename(image))

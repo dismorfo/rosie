@@ -3,6 +3,7 @@ const {
 } = require('hephaestus');
 
 const provider = get('PROVIDER');
+const gtag = get('GTAG');
 
 module.exports = {
   appName: 'The Real Rosie the Riveter Project',
@@ -11,4 +12,5 @@ module.exports = {
   version: '0.0.1',
   hephaestus: '2.0.0',
   provider: provider,
+  gtag: true,
 };

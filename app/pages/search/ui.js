@@ -40,7 +40,7 @@ new Vue({
     },
     fetchDocuments: function () {
       const vm = this;
-        fetch(`${this.discovery}?q=${this.q}`, {
+      fetch(`${this.discovery}?q=${this.q}&cursor=initial&size=100`, {
           method: 'GET'
         })
         .then(response => {
